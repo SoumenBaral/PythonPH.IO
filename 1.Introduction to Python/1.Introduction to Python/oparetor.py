@@ -6,5 +6,4 @@ print(first - second)
 print(first * second)
 print(first / second)
 print(first % second)
-print(first // second)
-
+print(first // second) # it will give only vag fol 
