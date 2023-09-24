@@ -11,3 +11,6 @@ print("Total Money : ",type(total1))
 # By default the input are string type
 total = int(firstMoney)+int(secondMoney)
 print(total)
+# convert int to sting; just use str()
+newTotal = str(total)
+print(type(newTotal))
