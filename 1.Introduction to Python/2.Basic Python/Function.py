@@ -5,7 +5,7 @@ def fun (x,y):
 
 
 def doubleIt(num):
-    print(num*2)
+    # print(num*2)
     return num*2
 
 # doubleIt(7)

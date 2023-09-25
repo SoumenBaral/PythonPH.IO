@@ -1,0 +1,5 @@
+highest  = max(12,23,43,53,33,11,23,4,54,23,343)
+highestArray = max([12,23,43,53,33,11,23,4,54,23])
+smallest = min([12,23,43,53,33,11,23,4,54,23])
+length =len([12,23,43,53,33,11,23,4,54,23]) 
+print(highest,highestArray,smallest,length)
