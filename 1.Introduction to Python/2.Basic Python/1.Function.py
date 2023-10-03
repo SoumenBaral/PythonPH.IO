@@ -14,3 +14,7 @@ total = fun(22,10)
 print(total)
 final = doubleIt(total)
 print('Final Result is : ', final)
+
+def double (x):
+    print(x*2)
+double(2)
