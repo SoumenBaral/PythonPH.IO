@@ -28,5 +28,12 @@ print("I am a honest man")
 # + , - , * , / , % , //(flor modulus) 
 first = 33
 second = 3
-print(first%second) # vagses
-print(first//second) # vagfol 
+# print(first%second) # vagses
+# print(first//second) # vagfol 
+ 
+#,,,,,,,,<Comparison>,,,,,,,,,,,,,
+# < , > , <= , >= , == , != 
+# python don't have any ++ , -- operator 
+# += , -= , *= , /=
+# in , not , not in , is  
+ 
