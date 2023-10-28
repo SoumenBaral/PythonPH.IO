@@ -61,6 +61,35 @@ else:
 
 # --->->->->For loop <-<-<-<---
 
-numbers = [10,20,30,40,50]
+numbers = [10,20,30,40,50,34,21,22,54,65]
 sum = 0
+for num in numbers:
+    # print(num)
+    sum +=num
+    # if(sum>200):
+    #     print('Bigger Value')
+
+# print(sum)
+text = 'Ami to vala na vala loia thioko '
+for char in text:
+    print(char)
+
+for i in range(1,10,3):
+    print(i)
+
+friends =['shakib','shuvo','rakib','durjoy']
+for i, friend in enumerate(friends):
+    print(f"Friend No {i}---{friend}")
+for i in range(5):
+    print(i)
+
+# ==<> while loop 
+print('while loop ')
+num = 1
+while num<=10:
+    num +=1
+    if num == 5:
+        continue
+    print(num)
+
 
