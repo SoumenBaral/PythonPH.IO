@@ -93,3 +93,9 @@ while num<=10:
     print(num)
 
 
+# Day 1 done...
+
+
+
+
+
