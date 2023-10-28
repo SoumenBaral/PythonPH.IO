@@ -10,7 +10,7 @@ text = f'My name is {name} and my address is {Address}'# very use full we use it
 # print(text)
 
 # ================Taking input==========
-print("I am a honest man")
+# print("I am a honest man")
 # money = input('Give me some money : ') 
 # print(int(money)+100)
 # firstMoney = input('Shakib khan money : ')
@@ -35,5 +35,32 @@ second = 3
 # < , > , <= , >= , == , != 
 # python don't have any ++ , -- operator 
 # += , -= , *= , /=
-# in , not , not in , is  
- 
+# in , not , not in , is ,is not
+# and , or
+
+# ................Condition ...................
+a = 2
+if a>10:
+    print('Good luck')
+elif a>5:
+    print('Middle luck') 
+
+elif a==2:
+    print('khape khap')
+
+else:
+    print('Bad luck')
+boss = True
+if (3>21 ):
+    print('Thik ase')
+    if (boss is not False or 22<3):
+        print('Boss vala')
+
+else:
+    print('jibon ta badona ')
+
+# --->->->->For loop <-<-<-<---
+
+numbers = [10,20,30,40,50]
+sum = 0
+
