@@ -13,5 +13,21 @@ def doubleIt(x):
 double = doubleIt(20)
 print(double)
 
+# function with default args
 
+def sum(a,b,c):
+    return a+b+c
 
+sum1 = sum(1,2,59)
+print(sum1)
+
+def allSum(a,b,*numbers):
+    print(numbers)
+    sum = 0
+    for num in numbers:
+        print(num)
+        sum +=num
+    return sum
+
+totalSum = allSum(45,50,33,23,32)
+print(totalSum)
