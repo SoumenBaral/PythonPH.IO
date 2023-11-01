@@ -35,7 +35,9 @@ print(totalSum)
 def doALot(*args):
     for arg in args:
         print(arg)
-doALot(32,43,42,34,31,21,22,11)
+doALot(32,43,42,34,31,21,22,11) 
+
+doALot(65,98,98,88)
 
 # -------------------------------------------#
 
