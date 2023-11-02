@@ -72,3 +72,33 @@ def fun (num1,num2):
 result = fun(10,20)
 for i,x in enumerate(result):
     print(f'{i}---->{x}')
+
+# Scopes  
+
+Balance = 200 # Global variable 
+
+def fun ():
+    XName ='Soumen Baral '# its a local variable 
+    global Balance # now we can modify global variable by the using of global keyword 
+    Balance = Balance-100
+    print(Balance)
+
+fun()
+# print(XName)
+
+# Module
+
+
+from Function import doubleIt as it
+
+it(2)
+
+# Built in function 
+
+highest = max(12,23,43,53,33,11,23,4,54,23,343)
+highestArray = max([12,23,43,53,33,11,23,4,54,23])
+smallest = min([12,23,43,53,33,11,23,4,54,23,343])
+length = len([12,23,43,53,33,11,23,4,54,23,343])
+
+
+print(f'highest = {highest} highestArray = {highestArray} smallest = {smallest} length = {length}')
