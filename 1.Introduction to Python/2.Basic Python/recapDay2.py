@@ -42,3 +42,22 @@ doALot(65,98,98,88)
 # -------------------------------------------#
 
 # KArgs multiple
+
+def allName(first,second):
+    name = f'{first} {second}'
+    return name 
+
+name = allName(second='Azad',first='kodu')
+# we can change it via second and first 
+print(name)
+# allName('Soumen','Baral')
+
+def famousName(first ,last ,**additional):
+    name = f'{first} {last}'
+    print(name)
+    # return name
+    # print(additional['micle'])
+    for key,val in additional.items():
+        print(key,val)
+    return name 
+Fname = famousName(last='proshad',first='vanu',title='Hujur' , micle ='jaction',cycle='Durango',additional='valoManus')
