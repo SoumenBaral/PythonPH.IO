@@ -61,3 +61,14 @@ def famousName(first ,last ,**additional):
         print(key,val)
     return name 
 Fname = famousName(last='proshad',first='vanu',title='Hujur' , micle ='jaction',cycle='Durango',additional='valoManus')
+print(Fname)
+def fun (num1,num2):
+    sum = num1+num2
+    multiply = num1*num2
+    div = num2/num1
+    reminder = num1-num2
+    return[sum,multiply,div,reminder]
+
+result = fun(10,20)
+for i,x in enumerate(result):
+    print(f'{i}---->{x}')
