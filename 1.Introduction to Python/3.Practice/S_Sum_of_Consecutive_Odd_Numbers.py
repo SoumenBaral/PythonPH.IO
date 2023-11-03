@@ -1,7 +1,7 @@
 t = int(input())
 
 while t != 0:
-    a,b=input().split()
+    a,b=input().split()#we use split for divide the string 
     a = int(a)
     b = int(b)
 
