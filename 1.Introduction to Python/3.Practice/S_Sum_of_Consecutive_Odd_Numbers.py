@@ -1,20 +1,23 @@
 t = int(input())
 
 while t != 0:
-    x = int(input())
-    y = int(input())
-    print(x)
-    t -= 1
-# t = input()
-# intT = int(t)
-# while intT>0:
-#     val = input()
-#     reversedVal = val[::-1]
-#     rev =""
-#     for c in reversedVal:
-#         rev += c + " "
+    a,b=input().split()
+    a = int(a)
+    b = int(b)
 
-#     # rev = rev.rstrip()
-#     print(rev)
-#     intT -=1
+    # print(a,b)
+    sum = 0
+    if(a<b):
+        for i in range(a+1,b):
+            
+            if i%2 != 0:
+                sum+=i
 
+
+    else:
+        for i in range(b+1,a):
+            if i%2 != 0:
+                sum+=i
+    
+    print(sum)
+    t-=1
