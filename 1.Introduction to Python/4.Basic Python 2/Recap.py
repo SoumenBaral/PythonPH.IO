@@ -98,3 +98,14 @@ A = {1,2,3,4,6}
 B = {1,5,7,8,9}
 print(A & B) # just common a^b
 print(A | B ) # common uncommon all
+
+# Dictionary ----------------?
+number = [12,32,43,54,56,76,78,90]
+person = ['soumen','student',23,'Pirojpur']
+# key value pair
+# dictionary 
+# object 
+# hash table
+# overlap with set 
+# [key : value,key : value]
+ 
