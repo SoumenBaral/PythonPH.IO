@@ -130,7 +130,7 @@ from math import *
 from random import *
 from time import sleep
 
-list = [1,2,3,4,5,6]
+lists = [1,2,3,4,5,6]
 
 print(ceil(3.1)) # 4
 print(sqrt(16))
@@ -138,7 +138,7 @@ print(factorial(4))
 print(random()) # It can be any number 
 print(randint(1,100)) # random integer into 1 to 100
 # sleep(3)
-print(choice(list)) # it will print a random element form the list that i have 
+print(choice(lists)) # it will print a random element form the lists that i have 
 
 
 # Pyautogui External package 
@@ -193,3 +193,29 @@ sum = lambda x,y : x+y
 
 add = sum(11,19)
 print(add)
+
+# Map 
+number = [12,32,43,54,56,76,78,90]
+# double_numbers = map(double,number)
+double_nums = map(lambda x: x*2,number)
+sqr_nums  = map(lambda x : x*x,number)
+
+print(number)
+print(list(double_nums))
+print(list(sqr_nums))
+
+# Filter 
+
+actors = [
+    {'name':"shabnur",'age':65},
+    {'name':"shakira",'age':25},
+    {'name':"shabila Noor",'age':65},
+    {'name':"shabana ",'age': 70},
+    {'name':"Alogir",'age':35},
+    {'name':"shabnur",'age':65},
+    {'name':"shakib",'age': 39},
+
+]
+
+junior = filter(lambda act : act['age']<40,actors)
+print(list(junior))
