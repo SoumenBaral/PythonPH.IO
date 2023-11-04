@@ -145,3 +145,30 @@ print(list)
 
 x = [50,40,30,2,20,33,10,1]
 print(tuple(x)) # (50, 40, 30, 2, 20, 33, 10, 1)
+
+
+# ----------------------------------------------------------------------------------------------
+
+# Set
+# we use 3rd bracket for set
+# it's Iterable , Mutable means changeable and uniq value  
+
+# Crate a set
+
+x = set() 
+print(x)
+
+x = set("PphHHHiiiiitronnnnnn") 
+print(x) # {'p', 'r', 'o', 'n', 'h', 'i', 't', 'P', 'H'} uniq value and divided upper and lower case 
+
+# we can add mixed type of value 
+x = set([3,5,2,'soumen','shuvo',23])
+print(x) # {2, 3, 5, 'shuvo', 'soumen', 23} just bracket change 
+
+# Some function in Set
+
+#  add || remove || pop || clear || copy || update 
+
+my_set = {1,3,2,4}
+my_set.add(34)
+print(my_set)
