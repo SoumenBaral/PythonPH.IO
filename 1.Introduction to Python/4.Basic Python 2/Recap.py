@@ -137,7 +137,7 @@ print(sqrt(16))
 print(factorial(4))
 print(random()) # It can be any number 
 print(randint(1,100)) # random integer into 1 to 100
-sleep(3)
+# sleep(3)
 print(choice(list)) # it will print a random element form the list that i have 
 
 
@@ -147,7 +147,7 @@ import pyautogui
 
 from time import sleep
 
-sleep(3)
+# sleep(3)
 # for i in range(0,1):
 #     pyautogui.write("I love all programming language mostly javascript",interval=0.25)
 #     pyautogui.press('enter')
@@ -165,4 +165,9 @@ sleep(3)
 # ------------------------???????????=0-----------------
 # # Exception in python
 
-
+try:
+    result = 23/0
+except:
+    print("Error Happened")
+finally:
+    ("it will be always with it ")
