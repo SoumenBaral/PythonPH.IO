@@ -63,3 +63,25 @@ print(course.count('Phiiiitrrron'))
 # Module is some build in function in python like STL in cpp
 from collections import Counter
 print(Counter(course)) # Counter({'i': 8, 'r': 6, 'P': 2, 'h': 2, 't': 2, 'o': 2, 'n': 2})
+
+
+# List 
+# It's a very flexible we can add any data type in the list or array .List is like an array.
+
+ab = "Soumen"
+print(list(ab)) 
+
+ac = ['Python']
+print(ac[0])
+
+a =['a','b']
+print(*a) #we can print the value of an array by the using of it 
+# Multidimensional list 
+a = [[1,2,3,4,5],[4,6,'soumen','shuvo'],'It is ok']
+print(a[0][2])
+for pr in a :
+    print(pr)
+
+for pr in a :
+   for val in pr:
+       print(val)
