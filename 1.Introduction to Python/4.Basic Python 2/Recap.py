@@ -139,3 +139,25 @@ print(random()) # It can be any number
 print(randint(1,100)) # random integer into 1 to 100
 sleep(3)
 print(choice(list)) # it will print a random element form the list that i have 
+
+
+# Pyautogui External package 
+
+import pyautogui
+
+from time import sleep
+
+sleep(3)
+# for i in range(0,1):
+#     pyautogui.write("I love all programming language mostly javascript",interval=0.25)
+#     pyautogui.press('enter')
+
+
+# Camera
+
+# import cv2
+# cam = cv2.VideoCapture(0)
+# while True:
+#     _,frame = cam.read()
+#     cv2.imshow('my cam',frame)
+#     cv2.waitKey(1)
