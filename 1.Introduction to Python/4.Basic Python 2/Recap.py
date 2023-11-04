@@ -171,3 +171,17 @@ except:
     print("Error Happened")
 finally:
     ("it will be always with it ")
+
+
+# lambda is for 1 line function
+
+def doubled (num):
+    return num*2
+
+double = doubled(32)
+print(double)
+
+doubled2 = lambda num : num * 2 # same function one is single line function
+
+double2 = doubled2(20)
+print(double2)
