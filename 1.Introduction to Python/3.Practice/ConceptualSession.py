@@ -139,4 +139,9 @@ print(list[::-1]) # same as reverse function
 print(list)
 
 # Tuple: tuple is like a list but the difference is it is immutable 
-# that's means we can not modify after it is created 
+# that's means we can not modify after it is created  list is [] bracket and tuple is ()
+# append || clear || count || insert || pop() || remove () || Sort() || reverse()
+# Any item of upper function are not valid for tuple just valid is copy()
+
+x = [50,40,30,2,20,33,10,1]
+print(tuple(x)) # (50, 40, 30, 2, 20, 33, 10, 1)
