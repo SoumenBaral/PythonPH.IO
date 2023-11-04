@@ -90,7 +90,7 @@ for pr in a :
 # =======================================================
 # Stl
 
-# append || clear || copy || count() || insert() || pop() || remove ()
+# append || clear || copy || count || insert || pop() || remove () || Sort() || reverse()
 
 # clear and append
 a = []
@@ -112,3 +112,28 @@ print(b) # ['x','y']
 x = [1,3,2,4,5,6]
 x.insert(2,10) # insert (first is position and second is the value you want to insert )
 print(x)
+
+# Pop is very interesting in python and remove is same 
+
+my_list = [1,2,3,4,5]
+my_list.pop()
+print(my_list)
+
+my_list.pop(2) #we can delete the value via index number wow
+print(my_list)
+
+deleted = my_list.pop(0)
+print(deleted) # we can also save it 
+my_list.remove(4) # remove is take the value of array not the index
+print(my_list) 
+
+
+# Sort and reverse
+
+list = [50,40,30,2,20,33,10,1]
+list.sort()
+print(list)
+list.reverse()
+print(list[::]) # print as it is 
+print(list[::-1]) # same as reverse function
+print(list)
