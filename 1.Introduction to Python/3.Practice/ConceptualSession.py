@@ -106,3 +106,9 @@ print("After clear",a)
 a = ['x','y']
 b = a.copy()
 print(b) # ['x','y']
+
+# Insert 
+
+x = [1,3,2,4,5,6]
+x.insert(2,10) # insert (first is position and second is the value you want to insert )
+print(x)
