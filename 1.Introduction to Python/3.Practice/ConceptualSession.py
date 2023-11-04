@@ -85,3 +85,24 @@ for pr in a :
 for pr in a :
    for val in pr:
        print(val)
+
+
+# =======================================================
+# Stl
+
+# append || clear || copy || count() || insert() || pop() || remove ()
+
+# clear and append
+a = []
+a.append(3)
+a.append('ok')
+print(a)
+print('Before clear',a)
+print(a.clear())
+print("After clear",a)
+
+# Copy
+
+a = ['x','y']
+b = a.copy()
+print(b) # ['x','y']
