@@ -100,7 +100,7 @@ print(A & B) # just common a^b
 print(A | B ) # common uncommon all
 
 # Dictionary ----------------?
-number = [12,32,43,54,56,76,78,90]
+
 person = ['soumen','student',23,'Pirojpur']
 # key value pair
 # dictionary 
@@ -116,3 +116,9 @@ print(person2.values())
 for key ,val in person2.items():
     print(key,val)
 
+# Index and value in an array 
+
+number = [12,32,43,54,56,76,78,90]
+
+for i ,val in enumerate(number):
+    print(f'index-->{i} : {val}')
