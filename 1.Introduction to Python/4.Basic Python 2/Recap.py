@@ -122,3 +122,12 @@ number = [12,32,43,54,56,76,78,90]
 
 for i ,val in enumerate(number):
     print(f'index-->{i} : {val}')
+
+
+# Built in Modules in python:
+
+from math import *
+from random import *
+from time import sleep
+
+list = [1,2,3,4,5,6]
