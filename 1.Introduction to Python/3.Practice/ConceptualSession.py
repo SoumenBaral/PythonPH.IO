@@ -208,5 +208,3 @@ for pr in it:
 for key,val in it:
     print(key,val)
 
-
-https://github.com/AsifMohammedSifat/Conceptual-Session/tree/main/Batch-3/Python/Week-1-1%2025-09-2023%20Basic%20Python
