@@ -45,3 +45,4 @@ actors = [
 junior = filter(lambda act : act['age']<40,actors)
 print(list(junior))
 
+# done for to day .............
