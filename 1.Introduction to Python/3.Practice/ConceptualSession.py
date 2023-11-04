@@ -53,3 +53,12 @@ if index !=-1:
 
 else:
     print("Not found")
+
+# Count 
+# The work of count is how many char in a siring not all single single 
+
+course = "PhiiiitrrronPhiiiitrrron"
+print(course.count('i'))
+print(course.count('Phiiiitrrron'))
+
+  
