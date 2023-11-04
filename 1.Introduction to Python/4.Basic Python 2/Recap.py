@@ -182,6 +182,14 @@ double = doubled(32)
 print(double)
 
 doubled2 = lambda num : num * 2 # same function one is single line function
-
+sqr = lambda num: num*num
 double2 = doubled2(20)
-print(double2)
+square = sqr(4)
+print(double2,square)
+
+# Multiple value 
+
+sum = lambda x,y : x+y
+
+add = sum(11,19)
+print(add)
