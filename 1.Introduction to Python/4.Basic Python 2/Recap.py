@@ -61,3 +61,40 @@ for pr in nums:
 
 # Final thing it that we use tuple for returning the multiple value from the function 
 
+# +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+# ---------------------------------------------------------------------
+
+# ^^^^^^^^^^^^^^^^^^^^^ Set ........................
+
+# list---->> []
+# set----->> {}
+# tuple--->> ()
+# set  is collection of unique items NO DUPLICATE  
+
+number = [12,32,43,54,56,76,78,90]
+print(number)
+
+set_number = set(number)
+print(set_number) # {32, 43, 12, 76, 78, 54, 56, 90}
+
+set_number.add(100) # It don't flow the order 
+set_number.add(12)
+set_number.add(12)
+set_number.add(12)
+set_number.add(12) # It will take one 12 only 
+print(set_number)
+
+set_number.remove(12)
+
+print(set_number)
+
+for item in set_number:
+    print(item)
+if 12 in set_number:
+    print('12 Exist')
+elif 90 in set_number:
+    print('90 Exist')
+A = {1,2,3,4,6}
+B = {1,5,7,8,9}
+print(A & B) # just common a^b
+print(A | B ) # common uncommon all
