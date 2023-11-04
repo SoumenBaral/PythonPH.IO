@@ -60,5 +60,6 @@ else:
 course = "PhiiiitrrronPhiiiitrrron"
 print(course.count('i'))
 print(course.count('Phiiiitrrron'))
-
-  
+# Module is some build in function in python like STL in cpp
+from collections import Counter
+print(Counter(course)) # Counter({'i': 8, 'r': 6, 'P': 2, 'h': 2, 't': 2, 'o': 2, 'n': 2})
