@@ -177,3 +177,36 @@ print(my_set)
 # Start  Dictionary 
 # Its Actually key value pair 
 # all value will be uniq
+# its immutable thats means we can not change it after it created 
+
+# clear() || copy() || keys() || values() || items() || pop() || fromkeys()
+
+myDict = {1:'Soumen',2:"baral"}
+myDict.clear()
+print(myDict) 
+
+# keys  and values
+myDict = {1:'Soumen',2:"baral"}
+key = myDict.keys()
+val = myDict.values()
+print(key)
+print(val)
+
+# item 
+it = myDict.items()
+print(it)
+
+# output
+# dict_keys([1, 2])
+# dict_values(['Soumen', 'baral'])
+# dict_items([(1, 'Soumen'), (2, 'baral')])
+myDict = {'first':'Soumen','second':"baral"}
+for pr in it:
+    for p in pr:
+        print(p)
+    
+for key,val in it:
+    print(key,val)
+
+
+https://github.com/AsifMohammedSifat/Conceptual-Session/tree/main/Batch-3/Python/Week-1-1%2025-09-2023%20Basic%20Python
