@@ -131,3 +131,11 @@ from random import *
 from time import sleep
 
 list = [1,2,3,4,5,6]
+
+print(ceil(3.1)) # 4
+print(sqrt(16))
+print(factorial(4))
+print(random()) # It can be any number 
+print(randint(1,100)) # random integer into 1 to 100
+sleep(3)
+print(choice(list)) # it will print a random element form the list that i have 
