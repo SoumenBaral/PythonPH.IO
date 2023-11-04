@@ -137,3 +137,6 @@ list.reverse()
 print(list[::]) # print as it is 
 print(list[::-1]) # same as reverse function
 print(list)
+
+# Tuple: tuple is like a list but the difference is it is immutable 
+# that's means we can not modify after it is created 
