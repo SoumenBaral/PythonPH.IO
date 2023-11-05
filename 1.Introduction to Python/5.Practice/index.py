@@ -34,6 +34,8 @@ print(lt)
 
 testCase = int(input())
 
-range(val)-->start with 0 and end with val-1
+# range(end)-->start with 0 and end with val-1
+# range(start , end)start , end-1
+# range(start , end ,step ) start, end - 1 , and how many step skip 
 for i in range(testCase):
     print(i)
