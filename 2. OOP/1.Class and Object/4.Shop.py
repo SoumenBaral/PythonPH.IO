@@ -1,5 +1,6 @@
 class shop:
     cart = [] # Cart is a class attribute that's means it will share every object
+              # Cart will be same for everyone every object can access the cart all product
     def __init__(self,buyer):
         self.buyer = buyer
 
