@@ -11,6 +11,8 @@ class shop:
 soumen = shop("Soumen")
 soumen.add_to_Cart("Table")
 soumen.add_to_Cart("chair")
+print(soumen.cart)
+
 Antora = shop("Antora")
 Antora.add_to_Cart("Wordwrap")
 Antora.add_to_Cart("Bike")
