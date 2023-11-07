@@ -25,6 +25,21 @@ class Phone:
     def phone_call(self,number ,text):
         print(f"Number : {number}  and SMS : {text}")
 
+class Camera:
+    def __init__(self, brand, price, color, pixel) -> None:
+        self.brand = brand
+        self.price = price
+        self.color = color
+        self.pixel = pixel
+
+    def run(self):
+        pass
+
+    def change_lens(self):
+        pass
+
+
 hp = Phone("HP","Silver",25000,500)
 hp.run()
 hp.phone_call(2322,"I Hate you")
+
