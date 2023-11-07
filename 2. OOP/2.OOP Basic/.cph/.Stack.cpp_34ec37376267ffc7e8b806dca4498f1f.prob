@@ -1,0 +1,1 @@
+{"name":"Local: Stack","url":"/home/gopal/All Dev/PythonPH.IO/2. OOP/2.OOP Basic/Stack.cpp","tests":[{"id":1699370246391,"input":"4\n1 2 3 4","output":"4 3 2 1"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"/home/gopal/All Dev/PythonPH.IO/2. OOP/2.OOP Basic/Stack.cpp","group":"local","local":true}
