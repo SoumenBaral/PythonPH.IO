@@ -81,3 +81,58 @@ Access Modifiers:
 
 
 """
+
+# Example
+
+"""Public Access Modifier:
+
+Public members (attributes and methods) are accessible from anywhere, both inside and outside the class.
+There is no special symbol to indicate public members in Python. By default, all members are considered public.
+python
+Copy code"""
+class MyClass:
+    def __init__(self):
+        self.public_var = 42  # Public attribute
+
+    def public_method(self):
+        return "This is a public method."
+
+obj = MyClass()
+print(obj.public_var)       # Accessing a public attribute
+print(obj.public_method())  # Accessing a public method
+
+"""Protected Access Modifier (Convention):
+
+In Python, a single underscore prefix (e.g., _variable) is used to indicate that an attribute or method is protected.
+By convention, protected members should not be accessed from outside the class, but it's still possible.
+python
+Copy code"""
+class MyClass:
+    def __init__(self):
+        self._protected_var = 42  # Protected attribute
+
+    def _protected_method(self):
+        return "This is a protected method."
+
+obj = MyClass()
+print(obj._protected_var)       # Accessing a protected attribute (not recommended)
+print(obj._protected_method())  # Accessing a protected method (not recommended)
+
+
+"""Private Access Modifier (Convention):
+
+In Python, a double underscore prefix (e.g., __variable) is used to indicate that an attribute or method is private.
+Name mangling is applied to make it harder to access private members from outside the class. You can still access them, but it's not recommended.
+python
+Copy code"""
+class MyClass:
+    def __init__(self):
+        self.__private_var = 42  # Private attribute
+
+    def __private_method(self):
+        return "This is a private method."
+
+obj = MyClass()
+# Accessing private members will involve name mangling
+print(obj._MyClass__private_var)       # Accessing a private attribute (not recommended)
+print(obj._MyClass__private_method())  # Accessing a private method (not recommended)
