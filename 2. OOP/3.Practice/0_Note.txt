@@ -6,3 +6,82 @@ OOP:
 5) Encaptulation
 6) Polymorphism
 7) Abstraction
+
+
+========================================================================================
+
+1-> Class : Ans: A class is a blueprint or template for creating objects. 
+
+========================================================================================
+
+2-> Object: An object is called an instance of a class. For example,
+ suppose Bike is a class then we can create objects like bike1 , bike2 ,
+ etc from the class. 
+
+========================================================================================
+
+3-> Methods: Methods are functions that are associated with an object or a class.
+
+========================================================================================
+4-> Inheritance: Inheritance is a fundamental concept in object-oriented programming
+ (OOP) that allows you to create new classes (subclasses or derived classes) based 
+ on existing classes (superclasses or base classes).
+
+ Type of Inheritance:
+
+I) Single Inheritance
+II) Multiple  Inheritance
+III) Multilevel Inheritance
+IV) Hierarchical Inheritance
+V) Hybrid Inheritance
+
+I.Single Inheritance:
+---------------------
+class parent:
+    pass
+class child(parent):
+    pass
+
+II.Multiple Inheritance:
+------------------------
+
+class parent1:
+    pass
+class parent2:
+    pass
+class child(parent1,parent2)
+    pass
+
+III.Multilevel:
+---------------
+
+class grandPa:
+    pass
+class father(grandPa):
+    pass
+class Child(father):
+    pass
+
+
+IV.Hierarchical Inheritance:
+---------------------------
+
+class parent:
+    pass
+
+class child1(parent):
+    pass
+
+class child2(parent):
+    pass
+
+V. Hybrid Inheritance:
+-----------------------
+
+class A:
+    pass
+class B(A):
+    pass
+class c(B):
+    pass
+class D(B,c)
