@@ -3,7 +3,7 @@ OOP:
 2) Object
 3) Methods
 4) Inheritance
-5) Encaptulation
+5) Encapsulation
 6) Polymorphism
 7) Abstraction
 
@@ -85,3 +85,15 @@ class B(A):
 class c(B):
     pass
 class D(B,c)
+
+========================================================================================
+
+5.Encapsulation : Data and Methods are building in a Single Unit 
+
+        Encapsulation = Single Unit(Data + Methods)
+        
+Two main types of encapsulation:
+I) Public Access (No Encapsulation)
+II) Private Access (Encapsulation)
+
+========================================================================================
