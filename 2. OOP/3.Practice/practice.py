@@ -56,3 +56,28 @@ cat = Cat("Whiskers")
 print(cat.speak())  # Output: Meow!
 
 
+"""
+Encapsulation:
+
+             It is one of the four fundamental concepts of object-oriented 
+             programming (OOP), along with inheritance, polymorphism, and 
+             abstraction. It involves bundling the data (attributes) and
+               methods (functions) that operate on that data into a single 
+               unit known as a class. Encapsulation allows you to hide the 
+               internal details of an object and only expose the necessary 
+               functionalities to the outside world. This concept helps in 
+               achieving data hiding and maintaining the integrity of an object.
+
+Access Modifiers: 
+            they are mechanisms that control the visibility and accessibility 
+            of class members (attributes and methods) from outside the class. 
+            Access modifiers dictate who can access and modify the members of 
+            a class. In some programming languages like Java and C++, access 
+            modifiers are explicitly defined (e.g., public, private, protected), 
+            while in Python, it follows a naming convention to denote visibility.
+            Although Python doesn't enforce access control like some other languages, 
+            the convention is to respect the intended visibility of attributes and
+            methods.
+
+
+"""
