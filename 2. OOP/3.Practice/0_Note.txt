@@ -119,3 +119,22 @@ about which method or function to call is made at run-time
 
 
 ========================================================================================
+7-> Abstraction:
+Abstraction is one of the fundamental principles of object-oriented programming (OOP) that involves hiding complex implementation details and showing only the necessary features of an object.
+
+Abstract Classes:
+-------------------------------
+
+from abc import ABC, abstractmethod
+
+class Shape(ABC):
+    @abstractmethod
+    def area(self):
+        pass
+
+class Circle(Shape):
+    def __init__(self, radius):
+        self.radius = radius
+
+    def area(self):
+        return 3.14 * self.radius ** 2
