@@ -39,6 +39,23 @@ class Library:
         self.users.append(user)
         print(f" Welcome to our library MemberShip sir, {user.name}")
         return user
+    def  borrowBook(self,user,token):
+        for book in self.books:
+            if book.id == token:
+                if book in user.borrowBooks:
+                    print("\n\t---> Already borrowed !")
+                    return
+                elif book.quantity==0:
+                    print("\n\t---> No Copy Available !")
+                    return
+                else:
+                    user.borrowedBooks.append(book)
+                    book.quantity-=1
+                    print(f"\n\t---> Borrowed {book.name} Succesfully !")
+                    return
+        print(f"\n\t---> Not found any book with id: {token} !")
+               
+
 
 bsk = Library("Waste of time ")
 bsk.addBook(101,"cp_Boss",4,"Dane Danial")
@@ -72,5 +89,73 @@ while True:
             id   = int(input("Enter a new Id : "))
             name = input("Enter your Name : ")
             password = input("Enter a Strong Password : ")
-                   
+
+            for user in bsk.users:
+                if user.id==id:
+                   print(f"this {id} Id is already Exist in library")
+                   break
+            user = bsk.addUser(name,id,password)
+            currentUser = user
+            changeOfUser = True
+
+    else:
+        if changeOfUser:
+            print("\n------------------------------------")
+            print(f"\tWelcome Back {currentUser.name} !")
+            print("------------------------------------")
+            changeOfUser=False
+        else:
+            print("\n\t<---------------------------->")
+
+        if currentUser.name == "Admin":
+
+            print("Options:\n")
+            print("1: Add book")
+            print("2: Show users")
+            print("3: Show all books")
+            print("4: Logout")
+
+
+            ch = int(input("Enter Options : "))
+
+            if ch == 1:
+                id=int(input("\tEnter book id:"))
+                name=input("\tEnter book name:")
+                quantity=int(input("\tEnter No of books:"))
+                author = input("Enter the Author Name : ")
+
+                bsk.addBook(id,name,quantity,author)
+
+            elif ch == 2 :
+                print("\n\tUsers:\n")
+                print(f'\tName\tReading Now\tAlready Read')
+            
+                for user in bsk.users:
+                    if user.name!="admin":
+                        print(f'\t{user.name}\t\t{len(user.borrowedBooks)}\t\t{len(user.returnedBooks)}')
+                  
+            elif ch == 3:
+                print("\n\tBook List:\n")
+
+                for book in bsk.books:
+                    print(f'\t{book.id}\t{book.name}\t{book.quantity}')
+            elif ch==4:
+                currentUser=None
+             
+            else:
+                print("\n\t---> !!! Choose Valid Option\n")
+
+        else:
+            print("Options:\n")
+            print("1: Borrow Book")
+            print("2: Return Book")
+            print("3: Show All Books")
+            print("4: Show Borrowed books")
+            print("5: Show History")
+            print("6: Logout") 
+
+        
+
+
+             
 
