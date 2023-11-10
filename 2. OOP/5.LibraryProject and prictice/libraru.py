@@ -42,4 +42,35 @@ class Library:
 
 bsk = Library("Waste of time ")
 bsk.addBook(101,"cp_Boss",4,"Dane Danial")
-Soumen =bsk.addUser("Soumen",111,"func")       
+Soumen = bsk.addUser("Soumen",111,"func") 
+Admin  = bsk.addUser("Admin",102,"lucky")
+
+currentUser  = Admin
+changeOfUser = True
+
+while True:
+    if currentUser == None :
+        print("\n\t--->!!! No logged in user\n")
+
+        option = input("Login or Register (L/R) : ")
+
+        if option == "L":
+            id       = int(input("Enter you Id : "))
+            password = input("Enter your Password : ")
+
+            match = False
+            for user in bsk.users:
+                if user.id == id and user.password == password:
+                    currentUser  = user
+                    changeOfUser = True
+                    match        = True
+                    break
+            if match == False:
+                print("\n\t---> No user Found !\n")
+        
+        elif option == "R":
+            id   = int(input("Enter a new Id : "))
+            name = input("Enter your Name : ")
+            password = input("Enter a Strong Password : ")
+                   
+
