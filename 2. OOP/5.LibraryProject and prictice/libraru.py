@@ -49,9 +49,24 @@ class Library:
                     print("\n\t---> No Copy Available !")
                     return
                 else:
-                    user.borrowedBooks.append(book)
+                    user.borrowBooks.append(book)
                     book.quantity-=1
                     print(f"\n\t---> Borrowed {book.name} Succesfully !")
+                    return
+        print(f"\n\t---> Not found any book with id: {token} !")
+               
+    def  returnBook(self,user,token):
+        for book in self.books:
+            if book.id == token:
+                if book in user.borrowBooks:
+                    book.quantity+=1
+                    user.returnBooks.append(book)
+                    user.borrowBooks.remove(book)
+                    print(f"\n\t---> Returned {book.name} Succesfully !")
+                    return
+                else:
+
+                    print(f"\n\t---> !!! You are not reading {book.name} now")
                     return
         print(f"\n\t---> Not found any book with id: {token} !")
                
@@ -153,6 +168,47 @@ while True:
             print("4: Show Borrowed books")
             print("5: Show History")
             print("6: Logout") 
+
+            ch=int(input("\nEnter Option:"))
+
+            if ch == 1 :
+                id=int(input("\tEnter book id:"))
+                bsk.borrowBook(currentUser,id)
+            elif ch == 2 :
+                id=int(input("\tEnter book id:"))
+                bsk.returnBook(currentUser,id)
+            elif ch == 3 :
+                print("\n\tAll Books:\n")
+                for book in bsk.books:
+                    if book in currentUser.borrowedBooks:
+                        print(f'\t{book.id}\t{book.name}\t{book.quantity}\tReading Now..')
+                    elif book in currentUser.returnedBooks:
+                        print(f'\t{book.id}\t{book.name}\t{book.quantity}\tAlready Read')
+                    else:
+                        print(f'\t{book.id}\t{book.name}\t{book.quantity}\tDid not Read')
+
+            elif ch == 4 :
+                print("\n\tBorrowed Books:\n")
+
+                for book in currentUser.borrowBooks:
+                    print(f'\t{book.id}\t{book.name}\t{book.quantity}')
+
+            elif ch == 5:
+                print("\n History:\n")
+                for book in currentUser.returnBooks:
+                    print(f'\t{book.id}\t{book.name}\t{book.quantity}')
+            elif ch==6:
+                currentUser=None
+                
+            else:
+                print("\n\t---> !!! Choose Valid Option\n")
+
+
+
+
+
+
+
 
         
 
