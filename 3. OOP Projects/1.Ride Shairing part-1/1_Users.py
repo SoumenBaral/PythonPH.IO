@@ -1,6 +1,22 @@
 from abc import ABC , abstractmethod
 from datetime import datetime
  
+class Ride_Sharing:
+    def __init__(self, company_name) -> None:
+        self.company_name = company_name
+        self.riders = []
+        self.drivers = []
+        self.rides = []
+
+    def add_rider(self, rider):
+        self.riders.append(rider)
+    
+    def add_driver(self, driver):
+        self.drivers.append(driver)
+
+    def __repr__(self) -> str:
+        return f'{self.company_name} with riders: {len(self.riders)} and drivers: {len(self.drivers)}'
+
 class User(ABC):
     def __init__(self,name,email,NID) -> None:
         self.name = name
@@ -15,9 +31,9 @@ class User(ABC):
         raise NotImplementedError
 
 class Rider(User):
-    def __init__(self, name, email, NID,CurrentLocation) -> None:
+    def __init__(self, name, email, NID,CurrentLocation,initialAmount) -> None:
         self.CurrentRide = None
-        self.wallet = 0
+        self.wallet = initialAmount
         self.CurrentLocation = CurrentLocation
         super().__init__(name, email, NID)
 
@@ -25,7 +41,7 @@ class Rider(User):
     def displayProfile(self):
         print(f"Rider Name : {self.name} and his Email: {self.email}")
     
-    def requestRide(self,currentLocation,destination):
+    def requestRide(self,destination):
         if not self.CurrentRide:
 
             # TODO: set ride request property ------> Done 
@@ -39,6 +55,8 @@ class Rider(User):
             self.wallet += loadMoney
     def updateLocation(self,currentLocation):
         self.CurrentLocation = currentLocation
+    def show_current_ride(self):
+        print(self.CurrentRide)
 
 class Driver(User):
     def __init__(self, name, email, NID,CurrentLocation) -> None:
@@ -95,12 +113,44 @@ class RideMatching :
 
         
 class Vehicles(ABC):
+    speed = {
+        'car': 50,
+        'bike': 60,
+        'cng': 15
+    }
 
     def __init__(self,vehicles_type , licensePlate , rate ) -> None:
         self.vehicles_type = vehicles_type
         self.licensePlate = licensePlate
         self.rate = rate
+        self.Status = "Available"
         super().__init__()
+    @abstractmethod
+    def startDrive(self):
+        pass
+
+class Car(Vehicles):
+    def __init__(self, vehicles_type, licensePlate, rate) -> None:
+        super().__init__(vehicles_type, licensePlate, rate)
+    def startDrive(self):
+        self.status = 'unavailable'
+
+class Bike (Vehicles):
+    def __init__(self, vehicles_type, licensePlate, rate) -> None:
+        super().__init__(vehicles_type, licensePlate, rate)
+    def startDrive(self):
+        self.status = 'unavailable'
+
+# check the class integration
+
+niye_jao = Ride_Sharing('Niye Jao')
+sakib = Rider("sakib Khan", 'sakib@khan.com', 1254, 'mohakhali')
+niye_jao.add_rider(sakib)
+kala_pakhi = Driver('Kala Pakhi', 'kala@sada.com', 5648, 'gulshan 1')
+niye_jao.add_driver(kala_pakhi)
+print(niye_jao)
+sakib.requestRide(niye_jao, 'uttara')
+sakib.show_current_ride()
     
 
         
