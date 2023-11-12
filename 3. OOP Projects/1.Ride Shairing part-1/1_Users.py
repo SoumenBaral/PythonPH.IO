@@ -70,3 +70,8 @@ class Ride:
         self.payment = payment
         self.rider.wallet -= self.EstimatedFare
         self.driver.wallet += self.EstimatedFare
+
+class RideRequest:
+    def __init__(self,rider,endLocation) -> None:
+        self.rider = rider
+        self.endLocation = endLocation
