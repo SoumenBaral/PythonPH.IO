@@ -15,9 +15,12 @@ class User(ABC):
         raise NotImplementedError
 
 class Rider(User):
-    def __init__(self, name, email, NID) -> None:
+    def __init__(self, name, email, NID,CurrentLocation) -> None:
         self.CurrentRide = None
+        self.wallet = 0
+        self.CurrentLocation = CurrentLocation
         super().__init__(name, email, NID)
+
 
     def displayProfile(self):
         print(f"Rider Name : {self.name} and his Email: {self.email}")
@@ -29,11 +32,17 @@ class Rider(User):
             # TODO: Set current via ride match
             ride_request = None
             self.CurrentRide = None
+    def LoadCash (self,loadMoney):
+        if loadMoney>0:
+            self.wallet += loadMoney
+    def updateLocation(self,currentLocation):
+        self.CurrentLocation = currentLocation
 
 class Driver(User):
     def __init__(self, name, email, NID,CurrentLocation) -> None:
         super().__init__(name, email, NID)
         self.CurrentLocation = CurrentLocation
+        self.wallet = 0
     
     def displayProfile(self):
         print(f"Rider Name : {self.name} and his Email: {self.email}")
@@ -46,12 +55,18 @@ class Ride:
         self.startLocation = startLocation
         self.endLocation   = EndLocation
         self.driver = None
+        self.rider = None
         self.StartingTime = None 
         self.EndingTime  = None
-        self.EstimatedFee = None
+        self.EstimatedFare = None
 
     def setDriver(self,driver):
         self.driver = driver
 
     def StartRide(self):
         self.StartingTime = datetime.now()
+    
+    def EndRide(self,rider,payment):
+        self.payment = payment
+        self.rider.wallet -= self.EstimatedFare
+        self.driver.wallet += self.EstimatedFare
