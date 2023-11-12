@@ -1,6 +1,6 @@
 from abc import ABC , abstractmethod
 
-class Users(ABC):
+class User(ABC):
     def __init__(self,name,email,NID) -> None:
         self.name = name
         self.email = email
@@ -13,7 +13,7 @@ class Users(ABC):
     def displayProfile(self):
         raise NotImplementedError
 
-class Rider(Users):
+class Rider(User):
     def __init__(self, name, email, NID) -> None:
         self.CurrentRide = None
         super().__init__(name, email, NID)
@@ -28,3 +28,14 @@ class Rider(Users):
             # TODO: Set current via ride match
             ride_request = None
             self.CurrentRide = None
+
+class Driver(User):
+    def __init__(self, name, email, NID,CurrentLocation) -> None:
+        super().__init__(name, email, NID)
+        self.CurrentLocation = CurrentLocation
+    
+    def displayProfile(self):
+        print(f"Rider Name : {self.name} and his Email: {self.email}")
+    
+    def acceptRide(self,ride):
+        ride.setDriver(self)
