@@ -1,5 +1,6 @@
 from abc import ABC , abstractmethod
-
+from datetime import datetime
+ 
 class User(ABC):
     def __init__(self,name,email,NID) -> None:
         self.name = name
@@ -39,3 +40,18 @@ class Driver(User):
     
     def acceptRide(self,ride):
         ride.setDriver(self)
+
+class Ride:
+    def __init__(self,startLocation,EndLocation) -> None:
+        self.startLocation = startLocation
+        self.endLocation   = EndLocation
+        self.driver = None
+        self.StartingTime = None 
+        self.EndingTime  = None
+        self.EstimatedFee = None
+
+    def setDriver(self,driver):
+        self.driver = driver
+
+    def StartRide(self):
+        self.StartingTime = datetime.now()
