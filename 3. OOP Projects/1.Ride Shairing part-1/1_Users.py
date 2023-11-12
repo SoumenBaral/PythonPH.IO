@@ -41,15 +41,16 @@ class Rider(User):
     def displayProfile(self):
         print(f"Rider Name : {self.name} and his Email: {self.email}")
     
-    def requestRide(self,destination):
+    
+    def request_ride(self, ride_sharing, destination):
         if not self.CurrentRide:
+            
+            ride_request = RideRequest(self, destination)
+            ride_matcher = RideMatching(ride_sharing.drivers)
+            ride = ride_matcher.findDriver(ride_request)
+            print('got the ride, yay', ride)
+            self.CurrentRide = ride
 
-            # TODO: set ride request property ------> Done 
-            # TODO: Set current via ride match------> Done
-
-            ride_request = RideRequest(self,destination)
-            rideMatcher = RideMatching()
-            self.CurrentRide = rideMatcher.findDriver(ride_request)
     def LoadCash (self,loadMoney):
         if loadMoney>0:
             self.wallet += loadMoney
@@ -98,15 +99,17 @@ class RideRequest:
 
 
 class RideMatching :
-    def __init__(self) -> None:
-        self.AvailableDrivers = []
+    def __init__(self,drivers) -> None:
+        self.AvailableDrivers = drivers
 
-    def findDriver(self, rideRequest):
-        # TODO: find the closest driver from the rider 
-        if len(self.AvailableDrivers)>0:
+    
+    def findDriver(self, ride_request):
+        if len(self.AvailableDrivers) > 0:
+            # TODO: find  the closest driver of the rider
+            print('looking for a driver')
             driver = self.AvailableDrivers[0]
-            ride  = Ride(rideRequest.rider.currentLocation,rideRequest.endLocation)
-            driver.acceptRide(ride)
+            ride = Ride(ride_request.rider.current_location, ride_request.end_location)
+            driver.accept_ride(ride)
             return ride
         
 
@@ -144,12 +147,12 @@ class Bike (Vehicles):
 # check the class integration
 
 niye_jao = Ride_Sharing('Niye Jao')
-sakib = Rider("sakib Khan", 'sakib@khan.com', 1254, 'mohakhali')
+sakib = Rider("sakib Khan", 'sakib@khan.com', 1254, 'mohakhali',1000)
 niye_jao.add_rider(sakib)
 kala_pakhi = Driver('Kala Pakhi', 'kala@sada.com', 5648, 'gulshan 1')
 niye_jao.add_driver(kala_pakhi)
 print(niye_jao)
-sakib.requestRide(niye_jao, 'uttara')
+sakib.request_ride(niye_jao,"uttora")
 sakib.show_current_ride()
     
 
