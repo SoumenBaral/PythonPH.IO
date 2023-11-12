@@ -30,7 +30,7 @@ class Rider(User):
 
             # TODO: set ride request property ------> Done 
             # TODO: Set current via ride match------> Done
-            
+
             ride_request = RideRequest(self,destination)
             rideMatcher = RideMatching()
             self.CurrentRide = rideMatcher.findDriver(ride_request)
@@ -92,5 +92,15 @@ class RideMatching :
             return ride
         
 
+
+        
+class Vehicles(ABC):
+
+    def __init__(self,vehicles_type , licensePlate , rate ) -> None:
+        self.vehicles_type = vehicles_type
+        self.licensePlate = licensePlate
+        self.rate = rate
+        super().__init__()
+    
 
         
