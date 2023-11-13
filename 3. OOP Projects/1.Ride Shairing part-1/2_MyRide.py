@@ -98,5 +98,25 @@ class RideMatching:
         if len(self.availableDrivers)>0:
             print("looking for a driver ")
             driver = self.availableDrivers[0]
-            ride = 0
+            ride = Ride(rideRequest.rider.currentLocation,rideRequest.endLocation)
+            driver.acceptRide (ride)
+            return ride
+        
+class Vehicle (ABC):
+    speed = {
+        'car':50,
+        'bike': 60, 
+        'cng':15
+
+    }
+    def __init__(self,vehicleType,licensePlate,rate) -> None:
+        self.vehicleType = vehicleType
+        self.licensePlate  = licensePlate
+        self.rate = rate
+        self.status = 'available'
+    
+    @abstractclassmethod
+    def startDrive(self):
+        pass
+      
     
