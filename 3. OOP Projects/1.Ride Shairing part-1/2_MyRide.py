@@ -30,7 +30,7 @@ class User(ABC):
 
 class Rider(User):
     def __init__(self, name, email, nid,currentLocation,initialAmount) -> None:
-        self.name = name 
+        self.currentRide =None
         self.wallet = initialAmount
         self.currentLocation = currentLocation
         super().__init__(name, email, nid)
@@ -131,4 +131,17 @@ class Bike(Vehicle):
         super().__init__(vehicleType, licensePlate, rate)
     def startDrive(self):
         self.status = 'unavailable'
+
+# check the class integration
+
+uber = RideSharing("uber")
+
+soumen = Rider("soumen","soumen@gmail.com",12112,"Guan",1222)
+uber.addRider(soumen)
+shuvo = Driver("shuvo","soumen@gmail.com",12112,"nemea")
+uber.addDriver(shuvo)
+print(uber)
+
+soumen.requestRide(uber,'StarBari')
+soumen.showCurrentRide()
 
