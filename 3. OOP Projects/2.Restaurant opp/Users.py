@@ -1,14 +1,17 @@
 from abc import ABC ,abstractstaticmethod
 
 class User(ABC):
-    def __init__(self,name) -> None:
+    def __init__(self,name,phone ,email,address) -> None:
         self.name = name 
+        self.phone = phone 
+        self.email = email
+        self.address = address
         super().__init__()
 class Customer(User):
-    def __init__(self, name,money) -> None:
+    def __init__(self, name,money,phone ,email,address) -> None:
         self.money = money
         self.__order = None
-        super().__init__(name)
+        super().__init__(name,phone ,email,address)
 
         # getter
     @property
@@ -32,4 +35,30 @@ class Customer(User):
         # TODO : Submit the money to the manager 
         pass
     def giftTips(self,amount):
+        pass
+
+class Employee(User):
+    def __init__(self, name,salary , StartingDate,department,phone ,email,address) -> None:
+        self.salary = salary
+        self.startingDate = StartingDate
+        self.department = department
+        super().__init__(name,phone ,email,address)
+
+class Chef(Employee):
+    def __init__(self, name, salary, StartingDate, department, phone, email, address,CookingItem) -> None:
+        super().__init__(name, salary, StartingDate, department, phone, email, address)
+        self.CookingItem = CookingItem
+
+class Server(Employee):
+    def __init__(self, name, salary, StartingDate, department, phone, email, address) -> None:
+        super().__init__(name, salary, StartingDate, department, phone, email, address)
+        self.TipsEarning = 0 
+
+    def takeOrder(self,order):
+        pass
+    def transferOrder(self,order):
+        pass
+    def serverOrder(self,order):
+        pass
+    def receiveTips(self,amount ):
         pass
