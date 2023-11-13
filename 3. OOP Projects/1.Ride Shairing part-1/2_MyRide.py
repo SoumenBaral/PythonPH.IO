@@ -53,6 +53,37 @@ class Rider(User):
     def showCurrentRide(self):
         print(self.currentRide)
 
+class Driver (User):
+    def __init__(self, name, email, nid,currentLocation) -> None:
+        super().__init__(name, email, nid)
+        self.currentLocation = currentLocation
+        self.wallet = 0
+    def displayProfile(self):
+        print(f"Driver with name : {self.name} and email : {self.email}")
+
+    def acceptRide(self,ride):
+        ride.setDriver(self)        
+class Ride :
+    def __init__(self,startLocation,endLocation) -> None:
+        self.startLocation = startLocation
+        self.endLocation = endLocation
+        self.driver = None
+        self.rider = None
+        self.startTime = None 
+        self.endTime = None 
+        self.estimatedFare = None
+    def setDriver(self,driver ):
+        self.driver = driver 
+    def setRide (self):
+        self.startTime = datetime.now()
+    def endRide(self):
+        self.endTime = datetime.now()
+        self.rider.wallet -=self.estimatedFare
+        self.driver.wallet += self.estimatedFare
+    def __repr__(self) -> str:
+        return f'Ride details . Started: {self.startLocation} to {self.endLocation}'
+
+        
 
 class RideRequest :
     def __init__(self,rider,endLocation) -> None:
