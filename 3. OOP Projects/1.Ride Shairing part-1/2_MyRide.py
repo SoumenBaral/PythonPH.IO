@@ -118,5 +118,17 @@ class Vehicle (ABC):
     @abstractclassmethod
     def startDrive(self):
         pass
-      
-    
+
+class Car(Vehicle):
+    def __init__(self, vehicleType, licensePlate, rate) -> None:
+        super().__init__(vehicleType, licensePlate, rate)
+
+    def startDrive(self):
+        self.status = 'unavailable'
+
+class Bike(Vehicle):
+    def __init__(self, vehicleType, licensePlate, rate) -> None:
+        super().__init__(vehicleType, licensePlate, rate)
+    def startDrive(self):
+        self.status = 'unavailable'
+
