@@ -41,8 +41,12 @@ class Employee(User):
     def __init__(self, name,salary , StartingDate,department,phone ,email,address) -> None:
         self.salary = salary
         self.startingDate = StartingDate
+        self.due = salary
         self.department = department
         super().__init__(name,phone ,email,address)
+    
+    def receiveSalary(self):
+        self.due = 0
 
 class Chef(Employee):
     def __init__(self, name, salary, StartingDate, department, phone, email, address,CookingItem) -> None:
