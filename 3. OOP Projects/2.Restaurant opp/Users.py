@@ -16,7 +16,20 @@ class Customer(User):
         return self.__order
 
     # Setter
-    
+
     @Order.setter
     def Order(self,order):
         self.__order = order
+    
+    def EatFood(self,order):
+        print(f'{self.name} is now enjoying his food : {order.items}')
+
+    def placeAOrder(self,order):
+        self.order = order
+        print(f"{self.name} place the a new Order : {order.items}")
+    
+    def PayForOrder(self,amount):
+        # TODO : Submit the money to the manager 
+        pass
+    def giftTips(self,amount):
+        pass
