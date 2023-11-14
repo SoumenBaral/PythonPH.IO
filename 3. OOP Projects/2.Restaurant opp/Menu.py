@@ -35,7 +35,7 @@ class Menu:
             self.pizzas.append(item)
         elif ItemType == "burger":
             self.burgers.append(item)
-        elif ItemType == "Drinks":
+        elif ItemType == "drinks":
             self.drinks.append(item)
     def removePizza(self,pizza):
         if pizza in self.pizzas:
