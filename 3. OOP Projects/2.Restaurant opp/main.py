@@ -1,6 +1,7 @@
 from Menu import Pizza , Burger,Drinks,Menu 
 from Restaurant import Restaurant
 from Users import Chef,Server,Customer,Manager
+from Order import Order
 def main ():
     menu = Menu()
 
@@ -55,6 +56,9 @@ def main ():
     customer3 = Customer("chodu mia ",1300,623424,"chodu32@gmail.com","Jomjom")
     customer4 = Customer("Modu mia ",5000,8923424,"Modu32@gmail.com","buk bazar")
     customer5 = Customer("Bidu mia ",6700,123424,"Bidu32@gmail.com","buk bazar")
+
+    order1 = Order(customer1,[pizza3,drinks2])
+    customer1.placeAOrder(order1)
 
 
 #Call the main  

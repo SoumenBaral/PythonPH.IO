@@ -11,6 +11,7 @@ class Customer(User):
     def __init__(self, name,money,phone ,email,address) -> None:
         self.money = money
         self.__order = None
+        self.due_bill = 0
         super().__init__(name,phone ,email,address)
 
         # getter
@@ -29,7 +30,8 @@ class Customer(User):
 
     def placeAOrder(self,order):
         self.order = order
-        print(f"{self.name} place the a new Order : {order.items}")
+        self.due_bill =order.bill
+        print(f"{self.name} place with the a Bill of : {order.bill} taka")
     
     def PayForOrder(self,amount):
         # TODO : Submit the money to the manager 

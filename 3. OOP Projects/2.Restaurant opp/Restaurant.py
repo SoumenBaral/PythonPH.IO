@@ -3,6 +3,7 @@ class Restaurant:
         self.name = name 
         self.menu = menu
         self.rent = rent
+        self.orders = []
         self.server = None
         self.chef = None
         self.manager = None
@@ -22,6 +23,10 @@ class Restaurant:
             self.server = employee
         elif self.employeeType == "manager":
             self.manager = employee
+
+    def AddOrder(self,order):
+        self.orders.append(order)
+        pass
     def receivePayment(self,amount,order,customer):
         if amount>=order.bill:
             self.revenue += amount.bill
