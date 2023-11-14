@@ -38,7 +38,6 @@ class Rider(User):
     def __init__(self, name, email, nid ,currentLocation) -> None:
         super().__init__(name, email, nid)
         self.currentLocation = currentLocation
-        self.destination = destination
         self.currentRide = None
 
     def display_Profile(self):
@@ -47,7 +46,12 @@ class Rider(User):
     def rideRequest(self,ridingApp,destination):
         print("looking for Rides")
         if not self.currentRide :
-            pass
+            ob = RideMatcher(ridingApp.drivers)
+            res = ob.hasDriver(self,destination)
+            print("your Result is , ",res)
+            self.currentRide = res
+            return True
+
 
 class Ride :
     def __init__(self,startLocation,endLocation ) -> None:
@@ -60,10 +64,30 @@ class Ride :
     def endRide(self):
         pass
     def __repr__(self) -> str:
-        return f"Start from {self.start_location} to {self.endLocation}"         
+        return f"Start from {self.startLocation} to {self.endLocation}"         
+
+class RideMatcher:
+    def __init__(self,drivers) -> None:
+        self.drivers = drivers
+
+    def hasDriver(self,rider,destination):
+        if(len(self.drivers))>0:
+            ride = Ride(rider.currentLocation,destination)
+            return ride
+        else:
+            return "Sorry, Driver not Found"
+
+        
 
 uber = RideSharing("UBER")
-uber.addDriver("monu")
-uber.addRider("janu")
+alice = Driver("Alice","alaice@gmil.com",12345,"Chittagong 1")
+Soumen = Rider("soumen","sakib@gmail.com",1236,"Chittagong 2")
+uber.addDriver(alice)
+uber.addRider(Soumen)
 print(uber)
+
+if Soumen.rideRequest(uber,"Dhaka"):
+    print("Traveling..")
+else:
+    print("No Ride found")
         
