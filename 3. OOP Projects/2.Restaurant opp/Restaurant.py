@@ -30,10 +30,12 @@ class Restaurant:
       
     def receivePayment(self,amount,order,customer):
         if amount>=order.bill:
-            self.revenue += amount.bill
-            self.balance += amount.bill
-            self.dueAmount = 0
-            return order - amount.bill
+            self.revenue += order.bill
+            self.balance += order.bill
+            customer.dueAmount = 0
+            return amount - order.bill
+        else:
+            print("you don't have enough money ")
     
     def payExpense(self,amount,description):
         if amount<self.balance:
@@ -47,6 +49,8 @@ class Restaurant:
     def PaySalary(self,employee):
         print(f'Paying salary for {employee.name} salary: {employee.salary}')
         if employee.salary<self.balance:
+            self.balance -= employee.salary
+            self.expense += employee.salary
             employee.receiveSalary() 
     
     def ShowEmployee(self):

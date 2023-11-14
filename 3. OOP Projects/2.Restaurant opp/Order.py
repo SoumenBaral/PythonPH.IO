@@ -4,3 +4,4 @@ class Order:
         total = 0
         for item in items:
             total += item.price
+        self.bill = total
