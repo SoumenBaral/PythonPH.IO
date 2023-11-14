@@ -1,7 +1,8 @@
 class Restaurant:
-    def __init__(self,name,menu =[]) -> None:
+    def __init__(self,name,rent,menu =[]) -> None:
         self.name = name 
         self.menu = menu
+        self.rent = rent
         self.server = None
         self.chef = None
         self.manager = None

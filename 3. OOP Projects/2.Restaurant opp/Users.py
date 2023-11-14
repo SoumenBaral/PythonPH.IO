@@ -66,3 +66,7 @@ class Server(Employee):
         pass
     def receiveTips(self,amount ):
         pass
+
+class Manager(Employee):
+    def __init__(self, name, salary, StartingDate, department, phone, email, address) -> None:
+        super().__init__(name, salary, StartingDate, department, phone, email, address)

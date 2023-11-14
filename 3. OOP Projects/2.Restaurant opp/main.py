@@ -1,5 +1,6 @@
 from Menu import Pizza , Burger,Drinks,Menu 
-
+from Restaurant import Restaurant
+from Users import Chef,Server,Customer,Manager
 def main ():
     menu = Menu()
 
@@ -26,6 +27,11 @@ def main ():
     menu.addMenuItems("drink",drinks2)
 
     menu.showMenu()
+
+
+    # Restaurant :
+
+    restaurant = Restaurant("Sai Baba ",1800,menu)
 
 #Call the main  
 if __name__ == '__main__':
