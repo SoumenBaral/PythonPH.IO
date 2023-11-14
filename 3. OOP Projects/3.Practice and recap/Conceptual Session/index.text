@@ -5,7 +5,7 @@ Class Diagram:
 |-----------------------|
 | - company_name: str   |
 | - riders: list[Rider] |
-| - drivers: list[Driver]|
+| -drivers: list[Driver]|
 |-----------------------|
 | + add_riders(rider)   |
 | + add_drivers(driver) |
@@ -23,7 +23,7 @@ Class Diagram:
 | - nid: int        |           | + ride_request(uber, destination)|        | + display_profile()              |
 |                   |           | + current_ride: Ride             |        |----------------------------------|
 | + abstract        |           | + display_profile()              |        | Association                      |
-|   display_profile()|          | + load_cash(amount)              |        |----------------------------------|
+|  display_profile()|           | + load_cash(amount)              |        |----------------------------------|
 |-------------------|           | + update_location(location)      |        | + has_driver(rider, destination) |
 | Inheritance       |           | + show_current_ride()            |        +----------------------------------+
 |-------------------|           |----------------------------------|
