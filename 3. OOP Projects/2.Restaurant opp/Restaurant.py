@@ -16,11 +16,11 @@ class Restaurant:
         self.employeeType = employeeType
         self.employee  = employee
 
-        if self.employee =="chef":
+        if self.employeeType =="chef":
             self.chef = employee
-        elif self.employee == "server":
+        elif self.employeeType == "server":
             self.server = employee
-        elif self.employee == "manager":
+        elif self.employeeType == "manager":
             self.manager = employee
     def receivePayment(self,amount,order,customer):
         if amount>=order.bill:
@@ -42,5 +42,14 @@ class Restaurant:
         print(f'Paying salary for {employee.name} salary: {employee.salary}')
         if employee.salary<self.balance:
             employee.receiveSalary() 
+    
+    def ShowEmployee(self):
+        print("showing Employees: ")
+        if self.chef is not None :
+            print(f'Chef : {self.chef.name} with salary : {self.chef.salary}')
+        if self.server is not None:
+            print(f"Server : {self.server.name} with salary: {self.server.salary}")
+        if self.manager is not None:
+            print(f"Server : {self.manager.name} with salary: {self.manager.salary}")
 
 

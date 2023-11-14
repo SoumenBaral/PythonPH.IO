@@ -33,6 +33,21 @@ def main ():
 
     restaurant = Restaurant("Sai Baba ",1800,menu)
 
+
+    # Add Employee to the restaurant
+    manager = Manager("Kala chan",12000,"30 jan 2022","Core",34,"kala@Omuk.com","kaloPur")
+
+    restaurant.addEmployee("manager",manager)
+
+    chef = Chef("Rustum Baburci",3400,"3 fed 2016","kahi",3432,"kahidai@baburchi.com","BaburchiPara","mular jhol")
+    restaurant.addEmployee("chef",chef)
+
+    server = Server("chtu server",3400,"22 fed 2023","givenTake",3432,"chotu@server.com","BePara")
+    restaurant.addEmployee("server",server)
+
+    # showing employees:
+    restaurant.ShowEmployee()
+
 #Call the main  
 if __name__ == '__main__':
     main()
