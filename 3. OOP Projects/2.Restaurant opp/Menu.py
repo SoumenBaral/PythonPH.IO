@@ -35,7 +35,7 @@ class Menu:
             self.pizzas.append(item)
         elif ItemType == "burger":
             self.burgers.append(item)
-        elif ItemType == "drinks":
+        elif ItemType == "drink":
             self.drinks.append(item)
     def removePizza(self,pizza):
         if pizza in self.pizzas:
@@ -46,7 +46,7 @@ class Menu:
             print(f'name: {pizza.name} price : {pizza.price}')
         for burger in self.burgers:
             print(f'Name : {burger.name } Price : {burger.price}')
-        for drink in Drinks:
+        for drink in self.drinks:
             print(f'Name : {drink.name } price: {drink.price}')
         
         

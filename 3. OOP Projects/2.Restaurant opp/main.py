@@ -21,9 +21,11 @@ def main ():
     # add Drinks to the menu 
 
     drinks1 = Drinks("funTa",30,True)
-    menu.addMenuItems("drinks",drinks1)
+    menu.addMenuItems("drink",drinks1)
     drinks2 = Drinks("MunTa",30,False)
-    menu.addMenuItems("drinks",drinks2)
+    menu.addMenuItems("drink",drinks2)
+
+    menu.showMenu()
 
 #Call the main  
 if __name__ == '__main__':
