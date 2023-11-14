@@ -26,7 +26,8 @@ class Restaurant:
 
     def AddOrder(self,order):
         self.orders.append(order)
-        pass
+      
+      
     def receivePayment(self,amount,order,customer):
         if amount>=order.bill:
             self.revenue += amount.bill

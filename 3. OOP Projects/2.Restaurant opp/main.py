@@ -57,8 +57,10 @@ def main ():
     customer4 = Customer("Modu mia ",5000,8923424,"Modu32@gmail.com","buk bazar")
     customer5 = Customer("Bidu mia ",6700,123424,"Bidu32@gmail.com","buk bazar")
 
+    # Customer one placing Order 
     order1 = Order(customer1,[pizza3,drinks2])
     customer1.placeAOrder(order1)
+    restaurant.AddOrder(order1)
 
 
 #Call the main  
