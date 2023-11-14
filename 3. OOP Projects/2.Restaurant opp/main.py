@@ -48,6 +48,15 @@ def main ():
     # showing employees:
     restaurant.ShowEmployee()
 
+
+    # Customer:
+    customer1 = Customer("Dudu mia ",1000,23424,"dudu32@gmail.com","buk bazar")
+    customer2 = Customer("kodu mia ",2000,523424,"kodu342@gmail.com","koku bazar")
+    customer3 = Customer("chodu mia ",1300,623424,"chodu32@gmail.com","Jomjom")
+    customer4 = Customer("Modu mia ",5000,8923424,"Modu32@gmail.com","buk bazar")
+    customer5 = Customer("Bidu mia ",6700,123424,"Bidu32@gmail.com","buk bazar")
+
+
 #Call the main  
 if __name__ == '__main__':
     main()
