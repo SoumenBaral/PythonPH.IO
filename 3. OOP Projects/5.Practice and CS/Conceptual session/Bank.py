@@ -1,4 +1,4 @@
-
+from abc import ABC ,abstractmethod
 class Account:
     accounts = []
     def __init__(self,name,accountNumber,Password,type) -> None:
@@ -33,6 +33,10 @@ class Account:
 
         else :
             print("\n Invalid Withdrew \n ")
+
+    @abstractmethod
+    def showInfo(self):
+        pass
 
 
     
