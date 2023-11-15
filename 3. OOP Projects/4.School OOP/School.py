@@ -79,15 +79,15 @@ class School:
         for student in eight.students:
             print(student.name)
 
-        print("-------Subject && course Teacher-------")
+        print("\n-------Subject && course Teacher-------\n")
         for subject in eight.subjects:
             print(f'{subject.name} ---------> {subject.teacher.name}')
 
         
-        print("------Student's Exam Marks-------")
+        print("\n------Student's Exam Marks-------\n")
         for student in eight.students:
             for key , value in student.marks.items():
-                print(student.name,key , value)
+                print(student.name,key , value , student.subject_grade[key])
             print('\n-------------- END------------------\n')
 
         
@@ -111,8 +111,17 @@ class ClassRoom:
         self.subjects.append(subject)
         
     def takeSemesterFinal(self):
+        # Take Exam ::
         for subject in self.subjects:
             subject.exam(self.students)
+
+        # Calculate Final Grade :
+
+        for student in self.students:
+            student.Calculate_Final_grade()
+
+        
+
     def __str__(self) -> str:
         
         return f'{self.name}: {len(self.students)}'
@@ -133,3 +142,4 @@ class Subject:
         for student in students:
             mark = self.teacher.EvaluateExam()
             student.marks[self.name] = mark
+            student.subject_grade[self.name] =School.calculate_grade(mark)
