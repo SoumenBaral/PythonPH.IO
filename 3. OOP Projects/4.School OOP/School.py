@@ -35,6 +35,12 @@ class School:
         print("-------Subject && course Teacher-------")
         for subject in eight.subjects:
             print(f'{subject.name} ---------> {subject.teacher.name}')
+
+        
+        print("------Student's Exam Marks-------")
+        for key , value in eight.students[0].marks.items():
+            print(key , value)
+            
         
         return  ''
 
@@ -75,4 +81,4 @@ class Subject:
     def exam(self,students):
         for student in students:
             mark = self.teacher.EvaluateExam()
-            
+            student.marks[self.name] = mark
