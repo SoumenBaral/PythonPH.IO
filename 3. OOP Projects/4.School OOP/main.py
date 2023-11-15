@@ -34,6 +34,8 @@ def main():
     Biology = Subject("Biology",Biology_Teacher)
     eight.addSubject(Biology)
 
+    eight.takeSemesterFinal()
+
     print(school)
 
 

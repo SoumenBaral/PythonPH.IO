@@ -53,7 +53,9 @@ class ClassRoom:
     def addSubject(self,subject):
         self.subjects.append(subject)
         
-    
+    def takeSemesterFinal(self):
+        for subject in self.subjects:
+            subject.exam(self.students)
     def __str__(self) -> str:
         
         return f'{self.name}: {len(self.students)}'
@@ -69,3 +71,8 @@ class Subject:
         self.maxMarks = 100
         self.passMark = 33
         self.teacher = teacher
+
+    def exam(self,students):
+        for student in students:
+            mark = self.teacher.EvaluateExam()
+            
