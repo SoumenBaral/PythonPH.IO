@@ -39,5 +39,21 @@ class Account:
         pass
 
 
+class SavingsAccount(Account):
+    def __init__(self, name, accountNumber, Password,interestRate) -> None:
+        super().__init__(name, accountNumber, Password, "SavingsAccount")
+        self.interestRate = interestRate
     
+    def applyInterest(self):
+        Interest = self.balance*(self.interestRate/100)
+        print("\n--> Interest is applied !")
+        self.deposit(Interest)
+
+
+    def showInfo(self):
+        print(f"Infos of {self.type} account of {self.name}:\n")
+        print(f'\n\tAccount Type : {self.type}')
+        print(f'\tName : {self.name}')
+        print(f'\tAccount No : {self.accountNo}')
+        print(f'\tCurrent Balance : {self.balance}\n')
 
