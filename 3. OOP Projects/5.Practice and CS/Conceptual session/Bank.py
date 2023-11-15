@@ -44,6 +44,26 @@ class SavingsAccount(Account):
         super().__init__(name, accountNumber, Password, "SavingsAccount")
         self.interestRate = interestRate
     
+    def Withdrew(self, amount):
+        if amount > 0 and (self.balance - amount) >= -self.limit:
+            self.balance -= amount
+            print(f"\n--> Withdrew ${amount}. New balance: ${self.balance}")
+        else:
+            print("\n--> Invalid withdrawal amount or overdraft limit reached")
+        
+
+    def showInfo(self):
+        print(f"Infos of {self.type} account of {self.name}:\n")
+        print(f'\n\tAccount Type : {self.type}')
+        print(f'\tName : {self.name}')
+        print(f'\tAccount No : {self.accountNo}')
+        print(f'\tCurrent Balance : {self.balance}\n')
+
+class SpecialAccount(Account):
+    def __init__(self, name, accountNumber, Password,limit) -> None:
+        super().__init__(name, accountNumber, Password, "special")
+        self.limit = limit
+    
     def applyInterest(self):
         Interest = self.balance*(self.interestRate/100)
         print("\n--> Interest is applied !")
@@ -56,4 +76,3 @@ class SavingsAccount(Account):
         print(f'\tName : {self.name}')
         print(f'\tAccount No : {self.accountNo}')
         print(f'\tCurrent Balance : {self.balance}\n')
-
