@@ -31,6 +31,10 @@ class School:
         eight = self.classrooms['eight']
         for student in eight.students:
             print(student.name)
+
+        print("-------Subject && course Teacher-------")
+        for subject in eight.subjects:
+            print(f'{subject.name} ---------> {subject.teacher.name}')
         
         return  ''
 
@@ -39,11 +43,16 @@ class ClassRoom:
     def __init__(self,name) -> None:
         self.name  = name 
         self.students = []
+        self.subjects = []
     
     def addStudent(self,student):
         serialId =  f'{self.name} - {len(self.students)+1}'
         student.id = serialId
         self.students.append(student)
+    
+    def addSubject(self,subject):
+        self.subjects.append(subject)
+        
     
     def __str__(self) -> str:
         
@@ -53,3 +62,10 @@ class ClassRoom:
 
     def get_top_Student(self):
         pass
+
+class Subject:
+    def __init__(self,name,teacher) -> None:
+        self.name = name 
+        self.maxMarks = 100
+        self.passMark = 33
+        self.teacher = teacher
