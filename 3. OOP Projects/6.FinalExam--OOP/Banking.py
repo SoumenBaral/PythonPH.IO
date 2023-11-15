@@ -9,6 +9,7 @@ class Account:
         self.balance = 0
         self.ID = random.randint(1000,9999)
         self.Transaction = []
+        self.loanCount = 2
         Account.accounts.append(self)
 
 
@@ -34,6 +35,18 @@ class Account:
        for trans in self.Transaction:
            for key, value in trans.items():
                 print(f"{key} : {value}", end=" ")
+    
+
+    def TakeLoan(self,amount):
+        if self.loanCount>0 and amount>=10000:
+            self.balance += amount
+            self.loanCount -=1
+            if self.loanCount == 1 :
+                print("you can take loan another time enjoy")
+            else:
+                print("Last time of your loan , Pay the previous loan ")
+        else:
+            print("your loan limit exceeded")
 
 
 
