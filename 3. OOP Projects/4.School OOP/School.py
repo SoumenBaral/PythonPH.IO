@@ -38,8 +38,12 @@ class School:
 
         
         print("------Student's Exam Marks-------")
-        for key , value in eight.students[0].marks.items():
-            print(key , value)
+        for student in eight.students:
+            for key , value in student.marks.items():
+                print(student.name,key , value)
+            print('\n-------------- END------------------\n')
+
+        
             
         
         return  ''
