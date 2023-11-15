@@ -26,6 +26,12 @@ class School:
         for key,value in self.classrooms.items():
             print(key)
         
+        print("----------------Students---------------")
+
+        eight = self.classrooms['eight']
+        for student in eight.students:
+            print(student.name)
+        
         return  ''
 
 

@@ -3,7 +3,7 @@ from Person import Student
 def main():
     school = School("Edam Ji","UTT O RA")
 
-    eight = ClassRoom("Eight")
+    eight = ClassRoom("eight")
     school.add_classRoom(eight)
 
     Nine = ClassRoom("Nine")
@@ -12,8 +12,12 @@ def main():
     Ten = ClassRoom("Ten")
     school.add_classRoom(Ten)
 
-    Abel = Student("Abib",Ten)
+    Abel = Student("Abib",eight)
     school.Student_Admission(Abel)
+    Babul = Student("Babul",eight)
+    school.Student_Admission(Babul)
+    kabul = Student("kabul",eight)
+    school.Student_Admission(kabul)
 
     print(school)
 
