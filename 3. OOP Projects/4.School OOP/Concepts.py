@@ -16,6 +16,9 @@
 ----------------------------------
         CORE FUNCTIONALITIES,
 
-
+1.There will be a classroom consisting of multiple students
+2.Students can enrol for Multiple classes 
+3.Teacher will take class ,they will take the exam and they grade the exam 
+4.System will generate the overall grade
 
 """
