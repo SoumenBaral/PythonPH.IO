@@ -7,17 +7,27 @@ class School:
         self.classrooms = {}
     
     def add_classRoom(self,classroom):
-        self.classrooms[classroom.name] =classroom
+        self.classrooms[classroom.name] = classroom
     
     def add_Teacher(self,subject,teacher):
         self.teachers[subject] = teacher
 
 
-    def Student_Admission(self,student,classroomName):
-        if classroomName in self.classrooms:
-            self.classrooms[classroomName].addStudent(student)
+    def Student_Admission(self,student):
+        className = student.classroom.name
+        if className in self.classrooms:
+            self.classrooms[className].addStudent(student)
         else:
-            print(f'No classroom as a {classroomName}')
+            print(f'No classroom as a {className}')
+
+    def __repr__(self) -> str:
+        print("---------------All Classrooms----------")
+
+        for key,value in self.classrooms.items():
+            print(key)
+        
+        return  ''
+
 
 class ClassRoom:
     def __init__(self,name) -> None:
@@ -27,7 +37,6 @@ class ClassRoom:
     def addStudent(self,student):
         serialId =  f'{self.name} - {len(self.students)+1}'
         student.id = serialId
-        student.classroom = self.name
         self.students.append(student)
     
     def __str__(self) -> str:

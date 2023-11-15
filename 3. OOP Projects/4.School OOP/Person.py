@@ -17,10 +17,10 @@ class Teacher(Person):
             # set marks for all subject of each student
 
 class Student(Person):
-    def __init__(self, name) -> None:
+    def __init__(self, name,classroom) -> None:
         super().__init__(name)
         self.__id = None 
-        self.classroom = None
+        self.classroom = classroom
         self.subjects =[]
         self.marks = {}
     
