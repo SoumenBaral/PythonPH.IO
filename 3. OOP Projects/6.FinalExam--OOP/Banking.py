@@ -1,6 +1,22 @@
 import random
+
+class Bank:
+    def __init__(self, Name, Location) -> None:
+        self.Name = Name
+        self.Location = Location
+        self.Users = []
+        self.total_Balance = 0
+        self.total_Loan = 0
+        self.Bankrupt = False
+        self.Loan_System = True
+
+
+
 class Account:
     accounts = []
+    total_Balance = 0
+    total_Loan = 0
+
     def __init__(self,name,email,address,type) -> None:
         self.name = name 
         self.email = email
@@ -18,6 +34,7 @@ class Account:
         if not self.isBankrupt:
             if amount >= 0 and amount >= self.balance:
                 self.balance -= amount
+                Account.total_Balance -=amount
                 resit = {"Withdraw" : amount ,"CurrentBalance":self.balance }
                 self.Transaction.append(resit)
                 print(f'\n After withdrawing ${amount} , your current Balance is : {self.balance}\n')
@@ -36,10 +53,14 @@ class Account:
         print(f'\n Current Balance is : {self.balance} \n')
 
     def TransactionHistory(self):
-       for trans in self.Transaction:
-           for key, value in trans.items():
-                print(f"{key} : {value}", end=" ")
-    
+        if len(self.Transaction)>0:
+           for trans in self.Transaction:
+                for key, value in trans.items():
+                    print(f"{key} : {value}", end=" ")
+
+        else:
+           print("There is no Transaction history ")
+        
 
     def TakeLoan(self,amount):
         if self.loanCount>0 and amount>=10000:
