@@ -1,16 +1,6 @@
 import random
 
-class Bank:
-    def __init__(self, Name, Location) -> None:
-        self.Name = Name
-        self.Location = Location
-        self.Users = []
-        self.total_Balance = 0
-        self.total_Loan = 0
-        self.Bankrupt = False
-        self.Loan_System = True
-
-
+"""YOUR_BANK"""
 
 class Account:
     accounts = []
@@ -45,6 +35,7 @@ class Account:
 
     def Deposit(self,amount):
         self.balance += amount
+        Account.total_Balance +=amount
         resit = {"Deposit" : amount ,"CurrentBalance":self.balance }
         self.Transaction.append(resit)
         print(f'\n After Deposit ${amount} , your current Balance is : {self.balance}\n')
@@ -64,6 +55,7 @@ class Account:
 
     def TakeLoan(self,amount):
         if self.loanCount>0 and amount>=10000:
+            Account.total_Loan +=amount
             self.balance += amount
             self.loanCount -=1
             if self.loanCount == 1 :
@@ -83,7 +75,7 @@ class Account:
         if self.balance>amount:
             for acc in Account.accounts:
                 for isAc in acc:
-                    if isAc["ID"] == self.id:
+                    if isAc["ID"] == id:
                         isAc["balance"] += amount
                         self.balance -= amount
                         flag= True
