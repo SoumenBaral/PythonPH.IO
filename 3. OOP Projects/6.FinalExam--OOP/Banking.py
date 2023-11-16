@@ -74,18 +74,14 @@ class Account:
             print("You don't have enough money to transfer ")
                        
 
+class Admin(Account):
+    def __init__(self, name, email, address, type) -> None:
+        super().__init__(name, email, address, type)
 
     
 
 
 
-my_dict = {'name': 'John', 'age': 25, 'city': 'New York'}
 
-for key, value in my_dict.items():
-    print(key, ":", value)
 
-y_dict = {'name': 'John', 'age': 25, 'city': 'New York'}
 
-# Traverse the dictionary and print key-value pairs in a single line
-for key, value in my_dict.items():
-    print(f"{key}: {value}", end=" ")
