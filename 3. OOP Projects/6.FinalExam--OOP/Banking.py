@@ -10,17 +10,21 @@ class Account:
         self.ID = random.randint(1000,9999)
         self.Transaction = []
         self.loanCount = 2
+        self.isBankrupt = False
         Account.accounts.append(self)
 
 
     def withdraw(self,amount):
-        if amount >= 0 and amount >= self.balance:
-            self.balance -= amount
-            resit = {"Withdraw" : amount ,"CurrentBalance":self.balance }
-            self.Transaction.append(resit)
-            print(f'\n After withdrawing ${amount} , your current Balance is : {self.balance}\n')
+        if not self.isBankrupt:
+            if amount >= 0 and amount >= self.balance:
+                self.balance -= amount
+                resit = {"Withdraw" : amount ,"CurrentBalance":self.balance }
+                self.Transaction.append(resit)
+                print(f'\n After withdrawing ${amount} , your current Balance is : {self.balance}\n')
+            else:
+                print("\n Withdrawal amount exceeded \n")
         else:
-            print("\n Withdrawal amount exceeded \n")
+            print("the bank is bankrupt")
 
     def Deposit(self,amount):
         self.balance += amount
@@ -47,7 +51,31 @@ class Account:
                 print("Last time of your loan , Pay the previous loan ")
         else:
             print("your loan limit exceeded")
+    
+    def isAccount(self,id):
+        for acc in Account.accounts:
+            if id in acc["ID"]:
+                return True
 
+    def TransferBalance(self,id , amount):
+        flag = False
+        if self.balance>amount:
+            for acc in Account.accounts:
+                for isAc in acc:
+                    if isAc["ID"] == self.id:
+                        isAc["balance"] += amount
+                        self.balance -= amount
+                        flag= True
+                        print(f'Transfer Successful to-- {isAc["name"]} and Balance is {isAc["balance"] }')
+                        break
+            if not flag:
+                print("Your Searching Account is invalid ,Thank you")
+        else:
+            print("You don't have enough money to transfer ")
+                       
+
+
+    
 
 
 
