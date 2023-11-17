@@ -27,24 +27,24 @@ class Account:
             if amount >= 0 and self.balance >= amount:
                 self.balance -= amount
                 Account.total_Balance -=amount
-                resit = f"withdraw balance is :{amount} and Current Balance is :  {self.balance} "
+                resit = f"withdraw balance is : ${amount} and Current Balance is :  ${self.balance} "
                 self.Transaction.append(resit)
-                print(f'\n After withdrawing ${amount} , your current Balance is : {self.balance}\n')
+                print(f'\n After withdrawing ${amount} , your current Balance is : ${self.balance}\n')
             else:
                 print("\n Withdrawal amount exceeded \n")
         else:
-            print("the bank is bankrupt")
+            print("\nthe bank is bankrupt")
 
     def Deposit(self,amount):
         if not Account.isBankrupt:
             self.balance += amount
             Account.total_Balance +=amount
-            resit = f"withdraw balance is :{amount} and Current Balance is :  {self.balance} "
+            resit = f"Deposit balance is :{amount} and Current Balance is :  {self.balance} "
             self.Transaction.append(resit)
             print(f'\n After Deposit ${amount} , your current Balance is : {self.balance}\n')
 
         else:
-            print("the bank is bankrupt")
+            print("\n the bank is bankrupt")
 
 
     def AvailableBalance(self):
@@ -56,7 +56,7 @@ class Account:
                 print(trans)
 
         else:
-           print("There is no Transaction history ")
+           print("\n ---------=> There is no Transaction history ")
         
 
     def TakeLoan(self,amount):
@@ -65,11 +65,11 @@ class Account:
             self.balance += amount
             self.loanCount -=1
             if self.loanCount == 1 :
-                print("you can take loan another time enjoy")
+                print("\n ---------=>  you can take loan another time enjoy")
             else:
-                print("Last time of your loan , Pay the previous loan ")
+                print("\n---------=> Last time of your loan , Pay the previous loan ")
         else:
-            print("your loan limit exceeded")
+            print("\n ------=>your loan limit exceeded<=----------\n")
     
     def isAccount(self,id):
         for acc in Account.accounts:
@@ -90,64 +90,67 @@ class Account:
                         break
             
                     else:
-                        print("You don't have enough money to transfer ")
+                        print("\n -------->You don't have enough money to transfer <-------\n ")
                 else:
-                    print('user is not found')
+                    print('\n----->user is not found<----------\n')
 
         else:
-            print("Not More user there you can transfer your money")
+            print("\n--------->Not More user there you can transfer your money<-----------\n")
                                 
 
 class Admin:
     name = "admin"
     password = "1234"
+    ID = "BOSS"
 
 
-    def create_user(self, name, email, address, account_type,password):
-        user =Account(name, email, address, account_type,password)
-        Account.accounts.append(user)
+    def create_user(self, name, email, address, account_type, password):
+        user = Account(name, email, address, account_type, password)
+        # Account.accounts.append(user)
+        print(f"\n------>Successfully create the Account , Name : {name} and AccountNumber : {user.ID} <--------\n")
         return user
     
-    def delete_user(self, account_number):
+    def delete_user(self, accountHolder):
         for user in Account.accounts:
-            if user.account_number == account_number:
-                Admin.user.remove(user)
-                print(f"User account number {account_number} has been deleted.")
-        print("User account not found. Deletion failed.")
+            if user.name == accountHolder:
+                Account.accounts.remove(user)
+                print(f"\n-----=> {accountHolder}'s account has been deleted.<=-------- \n")
+                return
+        print("\n ------=>User account not found. Deletion failed.<=---- \n")
     
     def show_users(self):
         if len(Account.accounts) > 0:
             print(f"\n-->Available users down below\n")
+            print(len(Account.accounts),"user's found \n")
             for user in Account.accounts:
                 print(
-                    f"-->Name: {user.name}, Account No: {user.ID}, Email: {user.email}, Address: {user.address}, Account Type: {user.AcType}"
+                    f"\n -->Name: {user.name}, Account No: {user.ID}, Email: {user.email}, Address: {user.address}, Account Type: {user.AcType} \n"
                 )
-                print()
         else:
             print(f"\n-->No user found.\n")
 
     
     def totalBalanceOfTheBank(self):
-        print(f'This Bank total Current Balance is : {Account.total_Balance}')
+        print(f'\n-------->This Bank total Current Balance is : {Account.total_Balance}<=-----\n')
     
     def check_bank_loan(self):
-        print(f"\n-->Total loan of the  bank is ${Account.total_Loan}\n")
+        print(f"\n--=>Total loan of the  bank is ${Account.total_Loan}<=--\n")
 
     def loanControl(self ,status=1):
         if status == "off" or status == 0:
             Account.lonStatus = False
-            print("You just Off the Loan Status ")
+            print("\n---------->You just Off the Loan Status<------------\n ")
         else:
             Account.lonStatus = True
-            print("loan status on")
+            print("\n---------->loan status on<--------------\n")
 
     def setBankrupt(self,status=0):
         if status == "on" or status == 1:
             Account.isBankrupt = True
-            print("You Bank in now  Bankrupt ")
+            print("\n------->You Bank in now  Bankrupt<----------------\n ")
         else:
             Account.lonStatus = False
-            print("Bank is now Open for all")
+            print("\n-------->Bank is now Open for all<-----------------\n")
 
    
 
@@ -162,16 +165,16 @@ currentUser=None
 while(True):
     if currentUser==None:
         print("\n-----> No user logged in !<--------\n")
-        ch=input("\n--> Register/Login (R/L) : ")
+        ch = input("\n--> Register/Login (R/L) : ")
         if ch=="R" or ch =='r':
-            name= input("name : ")
+            name= input("Name : ")
             email = input("Email : ")
             address = input("address : ")
-            accountType = input("account Type: ")
+            accountType = input("Account Type: ")
             password = input("Password : ")
             currentUser = Account(name,email,address,accountType,password)
 
-        elif ch == "L" or 'l':
+        elif ch == "L" or ch == 'l':
             LogInAs =input("Log in as User or Admin  U/A : " )
 
             if LogInAs == 'U' or LogInAs == 'u':
@@ -180,20 +183,27 @@ while(True):
                 for account in Account.accounts:
                     if account.name==name and account.password == password:
                         currentUser=account
-                        break
+                    else:
+                        print("\n ------------>your UserName or password is wrong<----------- \n")
             elif LogInAs == 'A' or LogInAs == 'a':
                 name=input("Account Name : ")
                 password = input("PassWord : ")
                 if(name==Admin.name and password == Admin.password):
-                    print("Take the control of the bank")
+                    print("\n------->Take the control of the bank<----------\n")
                     currentUser = Admin
                 else:
-                    print("you not UserName or password is wrong")
+                    print("\n ------->your UserName or password is wrong<-------------- \n")
             else:
-                print("Press The valid key ")
+                print("\n ----->Press The valid key<----------- \n")
+
+        else:
+            print("\n Press The valid key \n")
 
     else:
-        print(f"\nWelcome {currentUser.name} Account number {currentUser.ID}!\n  ")
+        print("\n--------------------------------------------------------------------------\n")
+        
+        print(f"\n---------=> Welcome {currentUser.name} Account number {currentUser.ID}!<=-------------\n  ")
+        
         if isinstance(currentUser, Account):
             print("1. Withdraw")
             print("2. Deposit")
@@ -224,7 +234,7 @@ while(True):
                 currentUser.TakeLoan(amount)
 
             elif op == 6:
-                receiverName = input("Enter the account number to transfer to:")
+                receiverName = input("Enter the account Holder Name For  transfer :")
                 amount = int(input("Enter transfer amount:"))
                 currentUser.TransferBalance(receiverName , amount)
 
@@ -232,8 +242,50 @@ while(True):
                 currentUser = None
 
             else:
-                print("Invalid Option")
+                print("\n------->Invalid Option<----------\n")
 
-        
+        else:
+            
+            print("1. Create User")
+            print("2. Delete User")
+            print("3. View User Accounts")
+            print("4. View Total Balance")
+            print("5. View Total Loan Amount")
+            print("6. Toggle Loan Feature")
+            print("7. Logout \n")
+
+            op = int(input("Choose Option : "))
+            
+            if op == 1:
+                name = input("Name : ")
+                email = input("Email : ")
+                address = input("Address: ")
+                account_type = input("account_type: ")
+                password = input("password : ")
+                currentUser.create_user(Admin,name,email,address,account_type,password)
+
+            elif op == 2:
+                acc = input("Enter account's Holder name to delete:")
+                result = currentUser.delete_user(Admin,acc)
+
+            elif op == 3:
+                acc = currentUser.show_users(Admin)
+            elif op == 4:
+                currentUser.totalBalanceOfTheBank(Admin)
+
+            elif op == 5:
+                currentUser.check_bank_loan(Admin)
+
+            elif op == 6:
+                status = int(input("on for pass 1 and for off press 0 : "))
+
+                result = currentUser.loanControl(Admin,status)
+
+            elif op == 7:
+                currentUser = None
+
+            else:
+                 print("\n------->Invalid Option<-----------\n")
+
 
 
