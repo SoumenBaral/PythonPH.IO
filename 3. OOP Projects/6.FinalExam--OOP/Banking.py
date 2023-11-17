@@ -23,8 +23,8 @@ class Account:
 
 
     def withdraw(self,amount):
-        if not self.isBankrupt:
-            if amount >= 0 and amount >= self.balance:
+        if not Account.isBankrupt:
+            if amount >= 0 and self.balance >= amount:
                 self.balance -= amount
                 Account.total_Balance -=amount
                 resit = f"withdraw balance is :{amount} and Current Balance is :  {self.balance} "
@@ -36,12 +36,17 @@ class Account:
             print("the bank is bankrupt")
 
     def Deposit(self,amount):
-        self.balance += amount
-        Account.total_Balance +=amount
-        resit = f"withdraw balance is :{amount} and Current Balance is :  {self.balance} "
-        self.Transaction.append(resit)
-        print(f'\n After Deposit ${amount} , your current Balance is : {self.balance}\n')
-    
+        if not Account.isBankrupt:
+            self.balance += amount
+            Account.total_Balance +=amount
+            resit = f"withdraw balance is :{amount} and Current Balance is :  {self.balance} "
+            self.Transaction.append(resit)
+            print(f'\n After Deposit ${amount} , your current Balance is : {self.balance}\n')
+
+        else:
+            print("the bank is bankrupt")
+
+
     def AvailableBalance(self):
         print(f'\n Current Balance is : {self.balance} \n')
 
@@ -170,9 +175,10 @@ while(True):
             LogInAs =input("Log in as User or Admin  U/A : " )
 
             if LogInAs == 'U' or LogInAs == 'u':
-                name=int(input("Account Name : "))
+                name = input("Account Name : ") 
+                password = input("Account Password : ")
                 for account in Account.accounts:
-                    if account.name==name:
+                    if account.name==name and account.password == password:
                         currentUser=account
                         break
             elif LogInAs == 'A' or LogInAs == 'a':
@@ -188,7 +194,46 @@ while(True):
 
     else:
         print(f"\nWelcome {currentUser.name} Account number {currentUser.ID}!\n  ")
-        break
+        if isinstance(currentUser, Account):
+            print("1. Withdraw")
+            print("2. Deposit")
+            print("3. Check balance")
+            print("4. Transaction history")
+            print("5. Loan")
+            print("6. Transfer balance")
+            print("7. Logout\n")
+            
+            op = int(input("Chose a Option : "))
 
+            if op == 1:
+                amount = int(input("Enter withdrawal amount: "))
+                currentUser.withdraw(amount)
+
+            elif op == 2:
+                amount = int(input("Enter deposit amount:"))
+                currentUser.Deposit(amount)
+
+            elif op == 3:
+                currentUser.AvailableBalance()
+
+            elif op == 4:
+                currentUser.TransactionHistory()
+
+            elif op == 5:
+                amount = int(input("Enter loan amount:"))
+                currentUser.TakeLoan(amount)
+
+            elif op == 6:
+                receiverName = input("Enter the account number to transfer to:")
+                amount = int(input("Enter transfer amount:"))
+                currentUser.TransferBalance(receiverName , amount)
+
+            elif op == 7:
+                currentUser = None
+
+            else:
+                print("Invalid Option")
+
+        
 
 
