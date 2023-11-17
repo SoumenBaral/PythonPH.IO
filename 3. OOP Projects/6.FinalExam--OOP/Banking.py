@@ -71,22 +71,27 @@ class Account:
             if id in acc["ID"]:
                 return True
 
-    def TransferBalance(self,id , amount):
-        flag = False
-        if self.balance>amount:
-            for acc in Account.accounts:
-                for isAc in acc:
-                    if isAc["ID"] == id:
-                        isAc["balance"] += amount
+    def TransferBalance(self,name , amount):
+        if len(Account.accounts) >= 2:
+            for user in Account.accounts:
+                if name == user.name:
+                    print('user found')
+                    if self.balance >= amount:
+                        user.balance += amount
                         self.balance -= amount
-                        flag= True
-                        print(f'Transfer Successful to-- {isAc["name"]} and Balance is {isAc["balance"] }')
+                        history = history = f"\n-->Balance successfully transferred to {name} from {self.name}, and the amount is {amount}\n"
+                        self.Transaction.append(history)
+                        print(history)
                         break
-            if not flag:
-                print("Your Searching Account is invalid ,Thank you")
+            
+                    else:
+                        print("You don't have enough money to transfer ")
+                else:
+                    print('user is not found')
+
         else:
-            print("You don't have enough money to transfer ")
-                       
+            print("Not More user there you can transfer your money")
+                                
 
 class Admin:
     name = "admin"
@@ -143,6 +148,47 @@ class Admin:
 
 
 
+
+
+
+currentUser=None
+
+
+while(True):
+    if currentUser==None:
+        print("\n-----> No user logged in !<--------\n")
+        ch=input("\n--> Register/Login (R/L) : ")
+        if ch=="R" or ch =='r':
+            name= input("name : ")
+            email = input("Email : ")
+            address = input("address : ")
+            accountType = input("account Type: ")
+            password = input("Password : ")
+            currentUser = Account(name,email,address,accountType,password)
+
+        elif ch == "L" or 'l':
+            LogInAs =input("Log in as User or Admin  U/A : " )
+
+            if LogInAs == 'U' or LogInAs == 'u':
+                name=int(input("Account Name : "))
+                for account in Account.accounts:
+                    if account.name==name:
+                        currentUser=account
+                        break
+            elif LogInAs == 'A' or LogInAs == 'a':
+                name=input("Account Name : ")
+                password = input("PassWord : ")
+                if(name==Admin.name and password == Admin.password):
+                    print("Take the control of the bank")
+                    currentUser = Admin
+                else:
+                    print("you not UserName or password is wrong")
+            else:
+                print("Press The valid key ")
+
+    else:
+        print(f"\nWelcome {currentUser.name} Account number {currentUser.ID}!\n  ")
+        break
 
 
 
