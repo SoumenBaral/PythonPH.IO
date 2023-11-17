@@ -183,8 +183,7 @@ while(True):
                 for account in Account.accounts:
                     if account.name==name and account.password == password:
                         currentUser=account
-                    else:
-                        print("\n ------------>your UserName or password is wrong<----------- \n")
+                        
             elif LogInAs == 'A' or LogInAs == 'a':
                 name=input("Account Name : ")
                 password = input("PassWord : ")
@@ -252,7 +251,8 @@ while(True):
             print("4. View Total Balance")
             print("5. View Total Loan Amount")
             print("6. Toggle Loan Feature")
-            print("7. Logout \n")
+            print("7. Make Bank setBankrupt")
+            print("8. Logout \n")
 
             op = int(input("Choose Option : "))
             
@@ -280,8 +280,12 @@ while(True):
                 status = int(input("on for pass 1 and for off press 0 : "))
 
                 result = currentUser.loanControl(Admin,status)
-
             elif op == 7:
+                currentUser.setBankrupt(Admin,1)
+
+
+            elif op == 8:
+
                 currentUser = None
 
             else:
