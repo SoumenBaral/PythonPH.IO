@@ -144,7 +144,7 @@ class Admin:
             Account.lonStatus = True
             print("\n---------->loan status on<--------------\n")
 
-    def setBankrupt(self,status=0):
+    def setBankrupt(self,status):
         if status == "on" or status == 1:
             Account.isBankrupt = True
             print("\n------->You Bank in now  Bankrupt<----------------\n ")
@@ -281,7 +281,8 @@ while(True):
 
                 result = currentUser.loanControl(Admin,status)
             elif op == 7:
-                currentUser.setBankrupt(Admin,1)
+                status = int(input("on for pass 1 and for off press 0 : "))
+                currentUser.setBankrupt(Admin,status)
 
 
             elif op == 8:
