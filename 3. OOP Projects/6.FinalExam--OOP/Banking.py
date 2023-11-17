@@ -6,12 +6,14 @@ class Account:
     accounts = []
     total_Balance = 0
     total_Loan = 0
+    lonStatus = True
 
-    def __init__(self,name,email,address,type) -> None:
+    def __init__(self,name,email,address,AcType,password) -> None:
         self.name = name 
         self.email = email
         self.address = address
-        self.type = type
+        self.password = password
+        self.AcType = AcType
         self.balance = 0
         self.ID = random.randint(1000,9999)
         self.Transaction = []
@@ -25,7 +27,7 @@ class Account:
             if amount >= 0 and amount >= self.balance:
                 self.balance -= amount
                 Account.total_Balance -=amount
-                resit = {"Withdraw" : amount ,"CurrentBalance":self.balance }
+                resit = f"withdraw balance is :{amount} and Current Balance is :  {self.balance} "
                 self.Transaction.append(resit)
                 print(f'\n After withdrawing ${amount} , your current Balance is : {self.balance}\n')
             else:
@@ -36,7 +38,7 @@ class Account:
     def Deposit(self,amount):
         self.balance += amount
         Account.total_Balance +=amount
-        resit = {"Deposit" : amount ,"CurrentBalance":self.balance }
+        resit = f"withdraw balance is :{amount} and Current Balance is :  {self.balance} "
         self.Transaction.append(resit)
         print(f'\n After Deposit ${amount} , your current Balance is : {self.balance}\n')
     
@@ -46,15 +48,14 @@ class Account:
     def TransactionHistory(self):
         if len(self.Transaction)>0:
            for trans in self.Transaction:
-                for key, value in trans.items():
-                    print(f"{key} : {value}", end=" ")
+                print(trans)
 
         else:
            print("There is no Transaction history ")
         
 
     def TakeLoan(self,amount):
-        if self.loanCount>0 and amount>=10000:
+        if self.loanCount>0 and Account.lonStatus:
             Account.total_Loan +=amount
             self.balance += amount
             self.loanCount -=1
@@ -87,9 +88,48 @@ class Account:
             print("You don't have enough money to transfer ")
                        
 
-class Admin(Account):
-    def __init__(self, name, email, address, type) -> None:
-        super().__init__(name, email, address, type)
+class Admin:
+    name = "admin"
+    password = "1234"
+
+
+    def create_user(self, name, email, address, account_type,password):
+        user =Account(name, email, address, account_type,password)
+        Account.accounts.append(user)
+        return user
+    
+    def delete_user(self, account_number):
+        for user in Account.accounts:
+            if user.account_number == account_number:
+                Admin.user.remove(user)
+                print(f"User account number {account_number} has been deleted.")
+        print("User account not found. Deletion failed.")
+    
+    def show_users(self):
+        if len(Account.accounts) > 0:
+            print(f"\n-->Available users down below\n")
+            for user in Account.accounts:
+                print(
+                    f"-->Name: {user.name}, Account No: {user.ID}, Email: {user.email}, Address: {user.address}, Account Type: {user.AcType}"
+                )
+                print()
+        else:
+            print(f"\n-->No user found.\n")
+
+    
+    def totalBalanceOfTheBank(self):
+        print(f'This Bank total Current Balance is : {Account.total_Balance}')
+    
+    def check_bank_loan(self):
+        print(f"\n-->Total loan of the  bank is ${Account.total_Loan}\n")
+
+    def loanControl(self ,status=1):
+        if status == "off" or status == 0:
+            Account.lonStatus = False
+            print("You just Off the Loan Status ")
+        else:
+            Account.lonStatus = True
+            print("loan status on")
 
     
 
