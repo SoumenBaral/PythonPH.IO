@@ -7,6 +7,7 @@ class Account:
     total_Balance = 0
     total_Loan = 0
     lonStatus = True
+    isBankrupt = False
 
     def __init__(self,name,email,address,AcType,password) -> None:
         self.name = name 
@@ -18,7 +19,6 @@ class Account:
         self.ID = random.randint(1000,9999)
         self.Transaction = []
         self.loanCount = 2
-        self.isBankrupt = False
         Account.accounts.append(self)
 
 
@@ -131,7 +131,15 @@ class Admin:
             Account.lonStatus = True
             print("loan status on")
 
-    
+    def setBankrupt(self,status=0):
+        if status == "on" or status == 1:
+            Account.isBankrupt = True
+            print("You Bank in now  Bankrupt ")
+        else:
+            Account.lonStatus = False
+            print("Bank is now Open for all")
+
+
 
 
 
